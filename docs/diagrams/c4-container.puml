@@ -1,0 +1,27 @@
+@startuml
+title Hang Anatomy Demo - C4 Container
+
+node "Docker Compose" {
+  component "app\nSpring Boot 4 MVC\nTomcat" as App
+  component "postgres\nPostgreSQL 17" as Db
+  component "wiremock\nPartner simulator" as WireMock
+  component "alloy\ncollector/agent" as Alloy
+  component "loki" as Loki
+  component "mimir" as Mimir
+  component "tempo" as Tempo
+  component "grafana" as Grafana
+  component "jmeter\noptional runner" as JMeter
+}
+
+JMeter --> App : load
+App --> Db : SQL
+App --> WireMock : HTTP
+App --> Alloy : OTLP traces
+Alloy --> Mimir : remote_write
+Alloy --> Loki : logs
+Alloy --> Tempo : traces
+Grafana --> Mimir
+Grafana --> Loki
+Grafana --> Tempo
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+title Hang Anatomy Demo - C4 Context
+
+actor "Conference operator" as Operator
+actor "End user / load generator" as User
+
+rectangle "hang-anatomy-demo" {
+  rectangle "Spring MVC service" as App
+}
+
+rectangle "Partner API simulator" as Partner
+rectangle "PostgreSQL" as Db
+rectangle "Observability stack" {
+  rectangle "Grafana" as Grafana
+  rectangle "Loki" as Loki
+  rectangle "Mimir" as Mimir
+  rectangle "Tempo" as Tempo
+  rectangle "Alloy" as Alloy
+}
+
+User --> App : GET /api/v1/dashboard/{id}
+Operator --> App : admin, health, mode switching
+App --> Db : JDBC via HikariCP
+App --> Partner : HTTP
+App --> Alloy : OTLP traces
+App --> Alloy : metrics scrape target
+App --> Alloy : JSON log file
+Alloy --> Loki
+Alloy --> Mimir
+Alloy --> Tempo
+Operator --> Grafana : dashboards, alerts
+Grafana --> Loki
+Grafana --> Mimir
+Grafana --> Tempo
+
+@enduml

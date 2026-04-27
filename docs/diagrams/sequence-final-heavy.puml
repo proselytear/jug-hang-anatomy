@@ -1,0 +1,40 @@
+@startuml
+title Final Heavy Request
+
+actor User
+participant Tomcat
+participant "Inbound rate limiter" as RateLimiter
+participant DashboardService
+participant "DB bulkhead" as DbBulkhead
+participant "DashboardReadService" as ReadService
+participant Hikari
+database PostgreSQL as Db
+participant "Partner bulkhead + timeout + CB" as PartnerGuard
+participant Partner
+
+User -> Tomcat : GET /api/v1/dashboard/{id}
+Tomcat -> RateLimiter : check
+alt rejected
+  RateLimiter --> Tomcat : 429 / 503
+  Tomcat --> User : controlled rejection
+else allowed
+  RateLimiter --> DashboardService
+  DashboardService -> DbBulkhead : acquire
+  DbBulkhead -> ReadService : short transaction
+  ReadService -> Hikari
+  Hikari -> Db
+  Db --> ReadService
+  ReadService --> DashboardService
+  DashboardService -> PartnerGuard : deadline budget
+  alt partner healthy enough
+    PartnerGuard -> Partner : HTTP
+    Partner --> PartnerGuard : response
+    PartnerGuard --> DashboardService : live payload
+  else timeout / circuit open / bulkhead full
+    PartnerGuard --> DashboardService : fallback / controlled failure
+  end
+  DashboardService --> Tomcat : DTO / mapped error
+  Tomcat --> User
+end
+
+@enduml

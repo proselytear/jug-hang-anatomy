@@ -1,0 +1,110 @@
+{
+  "uid": "hang-three-queues",
+  "title": "Hang Anatomy - Three Queues",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "10s",
+  "time": {"from": "now-15m", "to": "now"},
+  "tags": ["hang-anatomy", "queues"],
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Tomcat busy threads",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"}"}]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Tomcat max threads",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "tomcat_threads_config_max{application=\"hang-anatomy-demo\"}"}]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Tomcat busy/max ratio",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"} / clamp_min(tomcat_threads_config_max{application=\"hang-anatomy-demo\"}, 1)"}]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Hikari active",
+      "gridPos": {"h": 8, "w": 6, "x": 0, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_active{pool=\"hang-hikari\"}"}]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Hikari idle",
+      "gridPos": {"h": 8, "w": 6, "x": 6, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_idle{pool=\"hang-hikari\"}"}]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Hikari pending",
+      "gridPos": {"h": 8, "w": 6, "x": 12, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}"}]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Hikari max",
+      "gridPos": {"h": 8, "w": 6, "x": 18, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_max{pool=\"hang-hikari\"}"}]
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "Hikari timeout count",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hikaricp_connections_timeout_total{pool=\"hang-hikari\"}[5m])"}]
+    },
+    {
+      "id": 9,
+      "type": "timeseries",
+      "title": "Partner p95/p99 latency",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [
+        {"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))", "legendFormat": "p95"},
+        {"refId": "B", "expr": "histogram_quantile(0.99, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))", "legendFormat": "p99"}
+      ]
+    },
+    {
+      "id": 10,
+      "type": "timeseries",
+      "title": "Partner in-flight",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hang_partner_inflight{dependency=\"partner-api\"}"}]
+    },
+    {
+      "id": 11,
+      "type": "timeseries",
+      "title": "Partner timeouts",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 24},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_partner_timeouts_total{dependency=\"partner-api\"}[5m])"}]
+    },
+    {
+      "id": 12,
+      "type": "timeseries",
+      "title": "Partner errors",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 24},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_partner_errors_total{dependency=\"partner-api\"}[5m])"}]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+@startuml
+title Partner Bulkhead Protected Request
+
+actor User
+participant Tomcat
+participant DashboardService
+participant "DashboardReadService" as ReadService
+participant Hikari
+database PostgreSQL as Db
+participant "Partner bulkhead" as Bulkhead
+participant Partner
+
+User -> Tomcat : GET /api/v1/dashboard/{id}
+Tomcat -> DashboardService
+DashboardService -> ReadService : short DB read
+ReadService -> Hikari
+Hikari -> Db
+Db --> ReadService
+ReadService --> DashboardService
+DashboardService -> Bulkhead : try acquire permit
+alt permit available
+  Bulkhead -> Partner : HTTP call
+  Partner --> Bulkhead : response
+  Bulkhead --> DashboardService : live payload
+else bulkhead full
+  Bulkhead --> DashboardService : reject fast
+  DashboardService --> Tomcat : controlled failure / fallback
+end
+Tomcat --> User
+
+@enduml

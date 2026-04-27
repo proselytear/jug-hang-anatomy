@@ -1,0 +1,78 @@
+{
+  "uid": "hang-partner-resilience",
+  "title": "Hang Anatomy - Partner Resilience",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "10s",
+  "time": {"from": "now-15m", "to": "now"},
+  "tags": ["hang-anatomy", "resilience"],
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Partner latency p95/p99",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [
+        {"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))", "legendFormat": "p95"},
+        {"refId": "B", "expr": "histogram_quantile(0.99, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))", "legendFormat": "p99"}
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Partner errors",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_partner_errors_total{dependency=\"partner-api\"}[5m])"}]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Partner timeouts",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_partner_timeouts_total{dependency=\"partner-api\"}[5m])"}]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Bulkhead concurrent calls",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "resilience4j_bulkhead_max_allowed_concurrent_calls{name=\"partnerApi\"} - resilience4j_bulkhead_available_concurrent_calls{name=\"partnerApi\"}"}]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Bulkhead rejected calls",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_partner_rejections_total{dependency=\"partner-api\"}[5m])"}]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Circuit breaker state",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "resilience4j_circuitbreaker_state{name=\"partnerApi\"}", "legendFormat": "{{state}}"}]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Circuit breaker slow calls",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "resilience4j_circuitbreaker_slow_call_rate{name=\"partnerApi\"}"}]
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "Fallback count",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_partner_fallbacks_total{dependency=\"partner-api\"}[5m])"}]
+    }
+  ]
+}

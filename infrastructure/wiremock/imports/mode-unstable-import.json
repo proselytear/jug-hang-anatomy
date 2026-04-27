@@ -1,0 +1,94 @@
+{
+  "mappings": [
+    {
+      "name": "partner-unstable-fast",
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/partner-api/v1/dashboard/.*",
+        "headers": {
+          "X-Unstable-Bucket": {
+            "matches": "([1-7])"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 500,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "externalRef": "partner-unstable-fast",
+          "partnerMode": "unstable-partner",
+          "score": 28.0,
+          "recommendation": "partial",
+          "payload": {
+            "externalRef": "partner-unstable-fast",
+            "partnerMode": "unstable-partner",
+            "score": 28.0,
+            "recommendation": "partial"
+          }
+        }
+      }
+    },
+    {
+      "name": "partner-unstable-error",
+      "priority": 20,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/partner-api/v1/dashboard/.*",
+        "headers": {
+          "X-Unstable-Bucket": {
+            "matches": "([8-9])"
+          }
+        }
+      },
+      "response": {
+        "status": 500,
+        "fixedDelayMilliseconds": 500,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "error": "partner-failure"
+        }
+      }
+    },
+    {
+      "name": "partner-unstable-timeout",
+      "priority": 30,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/partner-api/v1/dashboard/.*",
+        "headers": {
+          "X-Unstable-Bucket": {
+            "equalTo": "10"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 3000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "externalRef": "partner-unstable-timeout",
+          "partnerMode": "unstable-partner",
+          "score": 9.0,
+          "recommendation": "late",
+          "payload": {
+            "externalRef": "partner-unstable-timeout",
+            "partnerMode": "unstable-partner",
+            "score": 9.0,
+            "recommendation": "late"
+          }
+        }
+      }
+    }
+  ],
+  "importOptions": {
+    "deleteAllNotInImport": true
+  }
+}

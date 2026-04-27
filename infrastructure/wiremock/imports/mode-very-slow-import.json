@@ -1,0 +1,33 @@
+{
+  "mappings": [
+    {
+      "name": "partner-very-slow",
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/partner-api/v1/dashboard/.*"
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 5000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "externalRef": "partner-very-slow",
+          "partnerMode": "very-slow-partner",
+          "score": 12.0,
+          "recommendation": "timeout-candidate",
+          "payload": {
+            "externalRef": "partner-very-slow",
+            "partnerMode": "very-slow-partner",
+            "score": 12.0,
+            "recommendation": "timeout-candidate"
+          }
+        }
+      }
+    }
+  ],
+  "importOptions": {
+    "deleteAllNotInImport": true
+  }
+}

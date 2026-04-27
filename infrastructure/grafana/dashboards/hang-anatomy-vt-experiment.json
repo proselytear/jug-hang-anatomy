@@ -1,0 +1,72 @@
+{
+  "uid": "hang-vt-experiment",
+  "title": "Hang Anatomy - Virtual Threads Experiment",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "10s",
+  "time": {"from": "now-15m", "to": "now"},
+  "tags": ["hang-anatomy", "vt"],
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Actuator latency",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hang-anatomy-demo\",uri=\"/actuator/health\"}[5m])))"}]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Admin latency",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hang-anatomy-demo\",uri=\"/api/v1/admin/status\"}[5m])))"}]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Tomcat threads",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [
+        {"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"}", "legendFormat": "busy"},
+        {"refId": "B", "expr": "tomcat_threads_current{application=\"hang-anatomy-demo\"}", "legendFormat": "current"}
+      ]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Hikari pending",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}"}]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Partner latency",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))"}]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "CPU",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "process_cpu_usage{application=\"hang-anatomy-demo\"}"}]
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "title": "Conclusion",
+      "gridPos": {"h": 8, "w": 24, "x": 0, "y": 16},
+      "options": {
+        "mode": "markdown",
+        "content": "VT reduce thread waiting cost, but do not create DB connections or speed up partner API."
+      }
+    }
+  ]
+}

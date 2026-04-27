@@ -1,0 +1,27 @@
+{
+  "id": "d5f9d15e-4b69-4bde-a465-4d0e0ef10aa1",
+  "name": "partner-normal",
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/partner-api/v1/dashboard/.*"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 50,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "externalRef": "partner-normal",
+      "partnerMode": "normal",
+      "score": 87.5,
+      "recommendation": "fast",
+      "payload": {
+        "externalRef": "partner-normal",
+        "partnerMode": "normal",
+        "score": 87.5,
+        "recommendation": "fast"
+      }
+    }
+  }
+}

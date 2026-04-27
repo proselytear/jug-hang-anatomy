@@ -1,0 +1,160 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: hang-anatomy-postgres
+    environment:
+      POSTGRES_DB: hanganatomy
+      POSTGRES_USER: hanganatomy
+      POSTGRES_PASSWORD: hanganatomy
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hanganatomy -d hanganatomy"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wiremock:
+    image: wiremock/wiremock:3.13.1
+    container_name: hang-anatomy-wiremock
+    command:
+      - "--port"
+      - "8080"
+      - "--verbose"
+      - "--global-response-templating"
+      - "--root-dir"
+      - "/home/wiremock"
+    volumes:
+      - ./infrastructure/wiremock:/home/wiremock
+    ports:
+      - "8089:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/__admin/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  loki:
+    image: grafana/loki:3.5.0
+    container_name: hang-anatomy-loki
+    command: ["-config.file=/etc/loki/loki.yaml"]
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./infrastructure/loki/loki.yaml:/etc/loki/loki.yaml:ro
+      - loki-data:/loki
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3100/ready || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  mimir:
+    image: grafana/mimir:2.15.0
+    container_name: hang-anatomy-mimir
+    command: ["-config.file=/etc/mimir/mimir.yaml"]
+    ports:
+      - "9009:9009"
+    volumes:
+      - ./infrastructure/mimir/mimir.yaml:/etc/mimir/mimir.yaml:ro
+      - mimir-data:/mimir
+
+  tempo:
+    image: grafana/tempo:2.8.2
+    container_name: hang-anatomy-tempo
+    command: ["-config.file=/etc/tempo/tempo.yaml"]
+    ports:
+      - "3200:3200"
+    volumes:
+      - ./infrastructure/tempo/tempo.yaml:/etc/tempo/tempo.yaml:ro
+      - tempo-data:/var/tempo
+    healthcheck:
+      test: ["CMD", "/busybox/wget", "-qO-", "http://localhost:3200/metrics"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  alloy:
+    image: grafana/alloy:v1.15.0
+    container_name: hang-anatomy-alloy
+    command:
+      - "run"
+      - "/etc/alloy/config.alloy"
+      - "--server.http.listen-addr=0.0.0.0:12345"
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "12345:12345"
+    volumes:
+      - ./infrastructure/alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - app-logs:/var/log/hang-anatomy:ro
+    depends_on:
+      loki:
+        condition: service_healthy
+      mimir:
+        condition: service_started
+      tempo:
+        condition: service_started
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hang-anatomy-app
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      HANG_OTLP_TRACES_ENDPOINT: http://alloy:4318/v1/traces
+      HANG_LOG_FILE: /var/log/hang-anatomy/application.json.log
+      JAVA_OPTS: -XX:MaxRAMPercentage=75 -Dfile.encoding=UTF-8
+    ports:
+      - "8080:8080"
+    volumes:
+      - app-logs:/var/log/hang-anatomy
+    depends_on:
+      postgres:
+        condition: service_healthy
+      wiremock:
+        condition: service_healthy
+      alloy:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  grafana:
+    image: grafana/grafana:12.0.2
+    container_name: hang-anatomy-grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./infrastructure/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./infrastructure/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      loki:
+        condition: service_healthy
+      mimir:
+        condition: service_started
+      tempo:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  postgres-data:
+  loki-data:
+  mimir-data:
+  tempo-data:
+  grafana-data:
+  app-logs:

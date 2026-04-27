@@ -1,0 +1,7 @@
+.git
+.gradle
+build
+load-tests/results
+out
+.idea
+*.iml

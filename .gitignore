@@ -1,0 +1,12 @@
+.gradle/
+build/
+out/
+*.iml
+.idea/
+.DS_Store
+
+load-tests/results/*
+!load-tests/results/.gitkeep
+
+*.log
+*.jfr

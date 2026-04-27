@@ -1,0 +1,99 @@
+{
+  "uid": "hang-final-reference",
+  "title": "Hang Anatomy - Final Reference",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "10s",
+  "time": {"from": "now-15m", "to": "now"},
+  "tags": ["hang-anatomy", "final"],
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "RPS",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "sum(rate(http_server_requests_seconds_count{application=\"hang-anatomy-demo\"}[1m]))"}]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "p95/p99",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [
+        {"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hang-anatomy-demo\"}[5m])))", "legendFormat": "p95"},
+        {"refId": "B", "expr": "histogram_quantile(0.99, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hang-anatomy-demo\"}[5m])))", "legendFormat": "p99"}
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Errors",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "sum(rate(http_server_requests_seconds_count{application=\"hang-anatomy-demo\",status!~\"2..\"}[5m]))"}]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Tomcat queue",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"} / clamp_min(tomcat_threads_config_max{application=\"hang-anatomy-demo\"}, 1)"}]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Hikari pending",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}"}]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Partner in-flight",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hang_partner_inflight{dependency=\"partner-api\"}"}]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Rate limiter rejected",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_rate_limiter_rejections_total[5m])"}]
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "Bulkhead rejected",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [
+        {"refId": "A", "expr": "increase(hang_partner_rejections_total{dependency=\"partner-api\"}[5m])", "legendFormat": "partner"},
+        {"refId": "B", "expr": "increase(hang_db_bulkhead_rejections_total[5m])", "legendFormat": "db"}
+      ]
+    },
+    {
+      "id": 9,
+      "type": "timeseries",
+      "title": "CB state",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "resilience4j_circuitbreaker_state{name=\"partnerApi\"}", "legendFormat": "{{state}}"}]
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "title": "Summary",
+      "gridPos": {"h": 8, "w": 24, "x": 0, "y": 24},
+      "options": {
+        "mode": "markdown",
+        "content": "Health = control of waiting queues"
+      }
+    }
+  ]
+}

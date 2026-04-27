@@ -1,0 +1,67 @@
+{
+  "uid": "hang-health-admin",
+  "title": "Hang Anatomy - Health and Admin",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "10s",
+  "time": {"from": "now-15m", "to": "now"},
+  "tags": ["hang-anatomy", "health"],
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "/actuator/health latency",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hang-anatomy-demo\",uri=\"/actuator/health\"}[5m])))", "legendFormat": "p95"}]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "/actuator/health errors",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "sum(rate(http_server_requests_seconds_count{application=\"hang-anatomy-demo\",uri=\"/actuator/health\",status!~\"2..\"}[5m]))"}]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "/api/v1/admin/status latency",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hang-anatomy-demo\",uri=\"/api/v1/admin/status\"}[5m])))", "legendFormat": "p95"}]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "/api/v1/admin/status errors",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "sum(rate(http_server_requests_seconds_count{application=\"hang-anatomy-demo\",uri=\"/api/v1/admin/status\",status!~\"2..\"}[5m]))"}]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Readiness failures",
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "increase(hang_health_readiness_failures_total[5m])"}]
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Liveness status",
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "up{job=\"hang-app\"}"}]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Hikari pending nearby",
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "datasource": {"type": "prometheus", "uid": "mimir"},
+      "targets": [{"refId": "A", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}"}]
+    }
+  ]
+}

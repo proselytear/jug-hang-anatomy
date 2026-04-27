@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: Hang Anatomy Dashboards
+    folder: Hang Anatomy
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 15
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards
+      foldersFromFilesStructure: false

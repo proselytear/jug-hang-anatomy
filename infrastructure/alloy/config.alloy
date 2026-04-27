@@ -1,0 +1,95 @@
+logging {
+  level  = "info"
+  format = "logfmt"
+}
+
+prometheus.scrape "hang_app" {
+  targets = [
+    {
+      "__address__"     = "app:8080",
+      "__metrics_path__" = "/actuator/prometheus",
+      "job"             = "hang-app",
+      "application"     = "hang-anatomy-demo",
+    },
+  ]
+
+  scrape_interval = "5s"
+  scrape_timeout  = "4s"
+  forward_to      = [prometheus.remote_write.mimir.receiver]
+}
+
+prometheus.remote_write "mimir" {
+  endpoint {
+    url = "http://mimir:9009/api/v1/push"
+  }
+}
+
+local.file_match "app_logs" {
+  path_targets = [
+    {
+      "__path__"    = "/var/log/hang-anatomy/*.log",
+      "job"         = "hang-app",
+      "application" = "hang-anatomy-demo",
+    },
+  ]
+}
+
+loki.source.file "app_logs" {
+  targets    = local.file_match.app_logs.targets
+  forward_to = [loki.process.app_logs.receiver]
+}
+
+loki.process "app_logs" {
+  stage.json {
+    expressions = {
+      level    = "level",
+      logger   = "logger",
+      traceId  = "traceId",
+      spanId   = "spanId",
+      endpoint = "endpoint",
+      mode     = "mode",
+      outcome  = "outcome",
+    }
+  }
+
+  stage.labels {
+    values = {
+      application = "application",
+      level       = "level",
+      endpoint    = "endpoint",
+      mode        = "mode",
+      outcome     = "outcome",
+    }
+  }
+
+  forward_to = [loki.write.default.receiver]
+}
+
+loki.write "default" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
+
+otelcol.receiver.otlp "default" {
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+
+  http {
+    endpoint = "0.0.0.0:4318"
+  }
+
+  output {
+    traces = [otelcol.exporter.otlphttp.tempo.input]
+  }
+}
+
+otelcol.exporter.otlphttp "tempo" {
+  client {
+    endpoint = "http://tempo:4318"
+    tls {
+      insecure = true
+    }
+  }
+}

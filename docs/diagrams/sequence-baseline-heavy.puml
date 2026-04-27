@@ -1,0 +1,27 @@
+@startuml
+title Baseline Heavy Request
+
+actor User
+participant Tomcat
+participant "DashboardService @Transactional" as Service
+participant Hikari
+database PostgreSQL as Db
+participant Partner
+
+User -> Tomcat : GET /api/v1/dashboard/{id}
+Tomcat -> Service : handle request
+Service -> Hikari : acquire connection
+Hikari -> Db : select dashboard + items
+Db --> Service : rows
+Service -> Partner : HTTP call while Tx is still open
+Partner --> Service : delayed response
+Service --> Tomcat : DTO
+Tomcat --> User : 200 / timeout / error
+
+note over Service,Hikari
+Connection is held during partner wait.
+Under load this grows Hikari active/pending
+and blocks more Tomcat workers.
+end note
+
+@enduml
