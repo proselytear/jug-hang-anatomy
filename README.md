@@ -92,6 +92,7 @@ Example dashboard id:
 - `recovery`
 
 These modes affect both WireMock behavior and the app-level mode tag used in logs and metrics.
+The Docker demo stack enables the `demo-latency` Spring profile by default so incident modes produce clearly visible 5-15 second delays instead of sub-second noise.
 
 ## Make Targets
 
@@ -118,6 +119,8 @@ Partner switching:
 - `make partner-very-slow`
 - `make partner-unstable`
 - `make partner-recovery`
+- `make mode-db-pressure`
+- `make mode-tx-hold`
 
 Load tests:
 
@@ -168,6 +171,20 @@ What to show:
 2. `Hang Anatomy - Three Queues`: Tomcat busy threads, Hikari pending, partner latency / in-flight.
 3. `Hang Anatomy - Health and Admin`: admin and health behavior under contention.
 4. `Hang Anatomy - Partner Resilience` and `Hang Anatomy - Final Reference`: controlled failure path after hardening.
+
+Stronger incident presets:
+
+```bash
+make up
+make partner-very-slow
+DURATION=20 HEAVY_THREADS=12 ADMIN_THREADS=2 HEALTH_THREADS=2 RAMP_UP=3 make test-mixed-load
+```
+
+```bash
+make up
+make mode-db-pressure
+DURATION=20 THREADS=24 RAMP_UP=3 make test-db-pressure-load
+```
 
 ## Branch Guide
 
