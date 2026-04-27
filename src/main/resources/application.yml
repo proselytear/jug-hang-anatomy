@@ -92,17 +92,17 @@ hang:
     base-url: ${HANG_PARTNER_BASE_URL:http://localhost:8089/partner-api/v1}
     dependency-tag: partner-api
     connect-timeout: 250ms
-    read-timeout: 1800ms
-    overall-deadline: 2s
+    read-timeout: 5s
+    overall-deadline: 30s
     timeout:
-      enabled: true
-      duration: 1500ms
+      enabled: false
+      duration: 5s
     bulkhead:
-      enabled: true
+      enabled: false
       max-concurrent-calls: 8
       max-wait-duration: 0ms
     circuit-breaker:
-      enabled: true
+      enabled: false
       sliding-window-size: 20
       minimum-number-of-calls: 10
       failure-rate-threshold: 50
@@ -112,19 +112,19 @@ hang:
       permitted-number-of-calls-in-half-open-state: 3
   db:
     bulkhead:
-      enabled: true
+      enabled: false
       max-concurrent-calls: 10
       max-wait-duration: 0ms
   rate-limiter:
     heavy:
-      enabled: true
+      enabled: false
       limit-for-period: 30
       limit-refresh-period: 1s
       timeout-duration: 0ms
   admin:
-    cache-ttl: 5s
-    db-timeout: 250ms
+    cache-ttl: 0s
+    db-timeout: 5s
   health:
-    readiness-cache-ttl: 5s
-    readiness-timeout: 250ms
+    readiness-cache-ttl: 0s
+    readiness-timeout: 5s
     db-query: select now()

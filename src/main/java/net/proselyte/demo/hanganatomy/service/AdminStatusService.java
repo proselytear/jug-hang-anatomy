@@ -43,26 +43,8 @@ public class AdminStatusService {
     }
 
     public AdminStatusResponse getStatus() {
-        Instant startedAt = Instant.now();
-        CachedStatus snapshot = cachedStatus.get();
-        if (snapshot != null && snapshot.isFresh(properties.admin().cacheTtl())) {
-            recordDuration("cache_hit", Duration.between(startedAt, Instant.now()));
-            return toResponse(snapshot.record(), true);
-        }
-
-        try {
-            AdminStatusRecord current = loadCurrentWithBudget();
-            cachedStatus.set(new CachedStatus(current, Instant.now()));
-            recordDuration("db_success", Duration.between(startedAt, Instant.now()));
-            return toResponse(current, false);
-        } catch (RuntimeException ex) {
-            if (snapshot != null) {
-                recordDuration("stale_fallback", Duration.between(startedAt, Instant.now()));
-                return toResponse(snapshot.record(), true);
-            }
-            recordDuration("db_failure", Duration.between(startedAt, Instant.now()));
-            throw ex;
-        }
+        AdminStatusRecord current = adminStatusRepository.loadCurrent();
+        return toResponse(current, false);
     }
 
     private AdminStatusRecord loadCurrentWithBudget() {

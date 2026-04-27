@@ -45,31 +45,17 @@ public class CachedDbReadinessHealthIndicator implements HealthIndicator {
 
     @Override
     public Health health() {
-        Instant startedAt = Instant.now();
-        CachedHealth snapshot = cachedHealth.get();
-        if (snapshot != null && snapshot.isFresh(properties.health().readinessCacheTtl())) {
-            recordDuration("cache_hit", Duration.between(startedAt, Instant.now()));
-            return snapshot.health();
-        }
-
-        Future<Instant> future = budgetExecutor.submit(adminStatusRepository::ping);
         try {
-            Instant dbTime = future.get(properties.health().readinessTimeout().toMillis(), java.util.concurrent.TimeUnit.MILLISECONDS);
-            Health health = Health.up()
+            Instant dbTime = adminStatusRepository.ping();
+            return Health.up()
                     .withDetail("dbTime", dbTime.toString())
                     .withDetail("mode", demoModeRegistry.currentMode().token())
                     .build();
-            cachedHealth.set(new CachedHealth(health, Instant.now()));
-            recordDuration("db_success", Duration.between(startedAt, Instant.now()));
-            return health;
-        } catch (TimeoutException ex) {
-            future.cancel(true);
-            return down("timeout", startedAt, ex);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-            return down("interrupted", startedAt, ex);
-        } catch (ExecutionException ex) {
-            return down("query_failure", startedAt, ex.getCause());
+        } catch (RuntimeException ex) {
+            return Health.outOfService()
+                    .withDetail("reason", "db_failure")
+                    .withDetail("exception", ex.getClass().getSimpleName())
+                    .build();
         }
     }
 

@@ -17,6 +17,7 @@ import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class DashboardService {
@@ -50,12 +51,15 @@ public class DashboardService {
         this.meterRegistry = meterRegistry;
     }
 
+    @Transactional(readOnly = true)
     public DashboardResponse getDashboard(UUID id) {
         DemoMode mode = demoModeRegistry.currentMode();
-        RequestDeadline deadline = RequestDeadline.after(properties.partner().overallDeadline());
-        guardRateLimit(mode);
-        DashboardData dashboardData = guardedDashboardRead(id, mode);
-        PartnerCallResult partnerCallResult = partnerClient.loadPartnerData(id, mode, deadline);
+        DashboardData dashboardData = dashboardReadService.loadDashboardData(id, mode);
+        PartnerCallResult partnerCallResult = partnerClient.loadPartnerData(
+                id,
+                mode,
+                RequestDeadline.after(properties.partner().overallDeadline())
+        );
         return dashboardResponseMapper.toResponse(dashboardData, partnerCallResult, mode);
     }
 
