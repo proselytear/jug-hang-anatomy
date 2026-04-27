@@ -112,7 +112,7 @@ hang:
       permitted-number-of-calls-in-half-open-state: 3
   db:
     bulkhead:
-      enabled: true
+      enabled: false
       max-concurrent-calls: 10
       max-wait-duration: 0ms
   rate-limiter:
