@@ -13,7 +13,7 @@
       "title": "Tomcat busy threads",
       "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"}"}]
+      "targets": [{"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"}"}]
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "title": "Tomcat max threads",
       "gridPos": {"h": 8, "w": 8, "x": 8, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "tomcat_threads_config_max{application=\"hang-anatomy-demo\"}"}]
+      "targets": [{"refId": "A", "expr": "tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"}"}]
     },
     {
       "id": 3,
@@ -29,7 +29,7 @@
       "title": "Tomcat busy/max ratio",
       "gridPos": {"h": 8, "w": 8, "x": 16, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"} / clamp_min(tomcat_threads_config_max{application=\"hang-anatomy-demo\"}, 1)"}]
+      "targets": [{"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"} / clamp_min(tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"}, 1)"}]
     },
     {
       "id": 4,
