@@ -30,8 +30,8 @@ final class TestPropertiesFactory {
                 new HangDemoProperties.RateLimiterGroup(
                         new HangDemoProperties.Heavy(true, 5, Duration.ofSeconds(1), Duration.ZERO)
                 ),
-                new HangDemoProperties.Admin(Duration.ZERO, Duration.ofMillis(100)),
-                new HangDemoProperties.Health(Duration.ofSeconds(1), Duration.ofMillis(100), "select now()")
+                new HangDemoProperties.Admin(Duration.ZERO, Duration.ofMillis(100), Map.of()),
+                new HangDemoProperties.Health(Duration.ofSeconds(1), Duration.ofMillis(100), "select now()", Map.of())
         );
     }
 }

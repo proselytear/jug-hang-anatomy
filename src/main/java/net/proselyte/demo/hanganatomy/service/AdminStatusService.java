@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import net.proselyte.demo.hanganatomy.config.HangDemoProperties;
 import net.proselyte.demo.hanganatomy.dto.AdminStatusResponse;
 import net.proselyte.demo.hanganatomy.entity.AdminStatusRecord;
+import net.proselyte.demo.hanganatomy.observability.DemoMode;
 import net.proselyte.demo.hanganatomy.observability.DemoModeRegistry;
 import net.proselyte.demo.hanganatomy.observability.MetricsContract;
 import net.proselyte.demo.hanganatomy.repository.AdminStatusRepository;
@@ -44,6 +45,7 @@ public class AdminStatusService {
 
     public AdminStatusResponse getStatus() {
         Instant startedAt = Instant.now();
+        DemoMode mode = demoModeRegistry.currentMode();
         CachedStatus snapshot = cachedStatus.get();
         if (snapshot != null && snapshot.isFresh(properties.admin().cacheTtl())) {
             recordDuration("cache_hit", Duration.between(startedAt, Instant.now()));
@@ -51,7 +53,7 @@ public class AdminStatusService {
         }
 
         try {
-            AdminStatusRecord current = loadCurrentWithBudget();
+            AdminStatusRecord current = loadCurrentWithBudget(mode);
             cachedStatus.set(new CachedStatus(current, Instant.now()));
             recordDuration("db_success", Duration.between(startedAt, Instant.now()));
             return toResponse(current, false);
@@ -65,8 +67,11 @@ public class AdminStatusService {
         }
     }
 
-    private AdminStatusRecord loadCurrentWithBudget() {
-        Future<AdminStatusRecord> future = budgetExecutor.submit(adminStatusRepository::loadCurrent);
+    private AdminStatusRecord loadCurrentWithBudget(DemoMode mode) {
+        Future<AdminStatusRecord> future = budgetExecutor.submit(() -> {
+            maybeSimulateDelay(mode);
+            return adminStatusRepository.loadCurrent();
+        });
         try {
             return future.get(properties.admin().dbTimeout().toMillis(), java.util.concurrent.TimeUnit.MILLISECONDS);
         } catch (TimeoutException ex) {
@@ -78,6 +83,19 @@ public class AdminStatusService {
         } catch (ExecutionException ex) {
             Throwable cause = ex.getCause() == null ? ex : ex.getCause();
             throw new ServiceUnavailableException("Admin status query failed: " + cause.getMessage(), cause);
+        }
+    }
+
+    private void maybeSimulateDelay(DemoMode mode) {
+        Duration delay = properties.simulatedAdminDelay(mode);
+        if (delay.isZero() || delay.isNegative()) {
+            return;
+        }
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+            throw new DependencyTimeoutException("Interrupted while simulating admin delay", ex);
         }
     }
 
