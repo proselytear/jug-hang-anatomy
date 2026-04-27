@@ -6,13 +6,27 @@ APP_MODE=${2:?app mode is required}
 WIREMOCK_URL=${WIREMOCK_URL:-http://localhost:8089}
 APP_URL=${APP_URL:-http://localhost:8080}
 
+contains_mode() {
+  local payload=$1
+  local expected_mode=$2
+
+  if command -v rg >/dev/null 2>&1; then
+    printf "%s" "${payload}" | rg "\"mode\":\"${expected_mode}\"" >/dev/null
+    return $?
+  fi
+
+  printf "%s" "${payload}" | grep -F "\"mode\":\"${expected_mode}\"" >/dev/null
+}
+
 wait_for_app_mode() {
   local expected_mode=$1
   local attempts=${2:-20}
   local sleep_seconds=${3:-1}
 
   for _ in $(seq 1 "${attempts}"); do
-    if curl -fsS "${APP_URL}/api/v1/demo/config" | rg "\"mode\":\"${expected_mode}\"" >/dev/null; then
+    local payload
+    payload=$(curl -fsS "${APP_URL}/api/v1/demo/config")
+    if contains_mode "${payload}" "${expected_mode}"; then
       return 0
     fi
     sleep "${sleep_seconds}"
