@@ -14,7 +14,7 @@
       },
       "response": {
         "status": 200,
-        "fixedDelayMilliseconds": 500,
+        "fixedDelayMilliseconds": 2000,
         "headers": {
           "Content-Type": "application/json"
         },
@@ -46,7 +46,7 @@
       },
       "response": {
         "status": 500,
-        "fixedDelayMilliseconds": 500,
+        "fixedDelayMilliseconds": 2000,
         "headers": {
           "Content-Type": "application/json"
         },
@@ -69,7 +69,7 @@
       },
       "response": {
         "status": 200,
-        "fixedDelayMilliseconds": 3000,
+        "fixedDelayMilliseconds": 10000,
         "headers": {
           "Content-Type": "application/json"
         },

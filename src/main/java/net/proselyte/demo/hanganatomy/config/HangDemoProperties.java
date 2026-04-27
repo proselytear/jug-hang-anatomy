@@ -17,7 +17,22 @@ public record HangDemoProperties(
 ) {
 
     public Duration simulatedDbDelay(DemoMode mode) {
-        return demo.simulatedDbDelay().getOrDefault(mode, Duration.ZERO);
+        return delayForMode(demo.simulatedDbDelay(), mode);
+    }
+
+    public Duration simulatedAdminDelay(DemoMode mode) {
+        return delayForMode(admin.simulatedDelay(), mode);
+    }
+
+    public Duration simulatedReadinessDelay(DemoMode mode) {
+        return delayForMode(health.simulatedDelay(), mode);
+    }
+
+    private Duration delayForMode(Map<DemoMode, Duration> delays, DemoMode mode) {
+        if (delays == null) {
+            return Duration.ZERO;
+        }
+        return delays.getOrDefault(mode, Duration.ZERO);
     }
 
     public record Demo(
@@ -50,14 +65,16 @@ public record HangDemoProperties(
 
     public record Admin(
             Duration cacheTtl,
-            Duration dbTimeout
+            Duration dbTimeout,
+            Map<DemoMode, Duration> simulatedDelay
     ) {
     }
 
     public record Health(
             Duration readinessCacheTtl,
             Duration readinessTimeout,
-            String dbQuery
+            String dbQuery,
+            Map<DemoMode, Duration> simulatedDelay
     ) {
     }
 
