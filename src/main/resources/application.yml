@@ -102,7 +102,7 @@ hang:
       max-concurrent-calls: 8
       max-wait-duration: 0ms
     circuit-breaker:
-      enabled: true
+      enabled: false
       sliding-window-size: 20
       minimum-number-of-calls: 10
       failure-rate-threshold: 50
