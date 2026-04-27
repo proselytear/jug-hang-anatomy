@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 
 import net.proselyte.demo.hanganatomy.config.HangDemoProperties;
+import net.proselyte.demo.hanganatomy.observability.DemoMode;
 import net.proselyte.demo.hanganatomy.observability.DemoModeRegistry;
 import net.proselyte.demo.hanganatomy.observability.MetricsContract;
 import net.proselyte.demo.hanganatomy.repository.AdminStatusRepository;
@@ -45,17 +46,32 @@ public class CachedDbReadinessHealthIndicator implements HealthIndicator {
 
     @Override
     public Health health() {
+        DemoMode mode = demoModeRegistry.currentMode();
+        maybeSimulateDelay(mode);
         try {
             Instant dbTime = adminStatusRepository.ping();
             return Health.up()
                     .withDetail("dbTime", dbTime.toString())
-                    .withDetail("mode", demoModeRegistry.currentMode().token())
+                    .withDetail("mode", mode.token())
                     .build();
         } catch (RuntimeException ex) {
             return Health.outOfService()
                     .withDetail("reason", "db_failure")
                     .withDetail("exception", ex.getClass().getSimpleName())
                     .build();
+        }
+    }
+
+    private void maybeSimulateDelay(DemoMode mode) {
+        Duration delay = properties.simulatedReadinessDelay(mode);
+        if (delay.isZero() || delay.isNegative()) {
+            return;
+        }
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Interrupted while simulating readiness delay", ex);
         }
     }
 

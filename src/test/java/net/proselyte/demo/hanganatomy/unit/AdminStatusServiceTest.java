@@ -5,6 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.time.Instant;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -43,7 +44,7 @@ class AdminStatusServiceTest {
         HangDemoProperties base = TestPropertiesFactory.defaults();
         HangDemoProperties properties = new HangDemoProperties(
                 base.demo(), base.partner(), base.db(), base.rateLimiter(),
-                new HangDemoProperties.Admin(java.time.Duration.ZERO, java.time.Duration.ofMillis(100)),
+                new HangDemoProperties.Admin(java.time.Duration.ZERO, java.time.Duration.ofMillis(100), Map.of()),
                 base.health()
         );
 

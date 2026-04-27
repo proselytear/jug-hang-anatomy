@@ -124,7 +124,9 @@ hang:
   admin:
     cache-ttl: 0s
     db-timeout: 5s
+    simulated-delay: {}
   health:
     readiness-cache-ttl: 0s
     readiness-timeout: 5s
     db-query: select now()
+    simulated-delay: {}
