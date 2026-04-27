@@ -30,8 +30,8 @@
       "gridPos": {"h": 8, "w": 8, "x": 16, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
       "targets": [
-        {"refId": "A", "expr": "tomcat_threads_busy{application=\"hang-anatomy-demo\"}", "legendFormat": "busy"},
-        {"refId": "B", "expr": "tomcat_threads_current{application=\"hang-anatomy-demo\"}", "legendFormat": "current"}
+        {"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"}", "legendFormat": "busy"},
+        {"refId": "B", "expr": "tomcat_threads_current_threads{application=\"hang-anatomy-demo\"}", "legendFormat": "current"}
       ]
     },
     {

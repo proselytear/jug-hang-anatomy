@@ -27,6 +27,8 @@ import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.timelimiter.TimeLimiter;
 import io.github.resilience4j.timelimiter.TimeLimiterConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
@@ -36,6 +38,8 @@ import tools.jackson.databind.ObjectMapper;
 
 @Service
 public class PartnerClient {
+
+    private static final Logger log = LoggerFactory.getLogger(PartnerClient.class);
 
     private final RestClient partnerRestClient;
     private final HangDemoProperties properties;
@@ -79,8 +83,8 @@ public class PartnerClient {
 
         try {
             PartnerPayload payload = executeWithResilience(dashboardId, mode, budget);
-            partnerSnapshotRepository.saveSnapshot(dashboardId, payload);
             partnerMetrics.recordSuccess(mode, Duration.between(startedAt, Instant.now()));
+            persistSnapshotBestEffort(dashboardId, payload);
             return PartnerCallResult.live(payload);
         } catch (BulkheadFullException ex) {
             partnerMetrics.recordRejection(mode, "bulkhead_rejected");
@@ -169,6 +173,14 @@ public class PartnerClient {
             );
         } finally {
             partnerMetrics.decrementInflight();
+        }
+    }
+
+    private void persistSnapshotBestEffort(UUID dashboardId, PartnerPayload payload) {
+        try {
+            partnerSnapshotRepository.saveSnapshot(dashboardId, payload);
+        } catch (RuntimeException ex) {
+            log.warn("Unable to persist partner snapshot for dashboard {}", dashboardId, ex);
         }
     }
 
