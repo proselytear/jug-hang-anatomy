@@ -2,7 +2,7 @@
   "uid": "hang-three-queues",
   "title": "Hang Anatomy - Three Queues",
   "schemaVersion": 41,
-  "version": 1,
+  "version": 2,
   "refresh": "10s",
   "time": {"from": "now-15m", "to": "now"},
   "tags": ["hang-anatomy", "queues"],
@@ -10,101 +10,212 @@
     {
       "id": 1,
       "type": "timeseries",
-      "title": "Tomcat busy threads",
-      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0},
+      "title": "Tomcat thread pool: busy / current / max",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"}"}]
+      "targets": [
+        {"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"}", "legendFormat": "busy"},
+        {"refId": "B", "expr": "tomcat_threads_current_threads{application=\"hang-anatomy-demo\"}", "legendFormat": "current"},
+        {"refId": "C", "expr": "tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"}", "legendFormat": "max"}
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
     },
     {
       "id": 2,
-      "type": "timeseries",
-      "title": "Tomcat max threads",
-      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 0},
+      "type": "stat",
+      "title": "Tomcat saturation now",
+      "gridPos": {"h": 8, "w": 6, "x": 12, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"}"}]
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green"},
+              {"color": "yellow", "value": 0.7},
+              {"color": "red", "value": 0.85}
+            ]
+          }
+        }
+      },
+      "targets": [
+        {"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"} / clamp_min(tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"}, 1)"}
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      }
     },
     {
       "id": 3,
-      "type": "timeseries",
-      "title": "Tomcat busy/max ratio",
-      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 0},
+      "type": "stat",
+      "title": "Tomcat headroom now",
+      "gridPos": {"h": 8, "w": 6, "x": 18, "y": 0},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"} / clamp_min(tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"}, 1)"}]
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        }
+      },
+      "targets": [
+        {"refId": "A", "expr": "clamp_min(tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\"} - tomcat_threads_busy_threads{application=\"hang-anatomy-demo\"}, 0)"}
+      ],
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      }
     },
     {
       "id": 4,
       "type": "timeseries",
-      "title": "Hikari active",
-      "gridPos": {"h": 8, "w": 6, "x": 0, "y": 8},
+      "title": "Hikari pool state: active / idle / pending / max",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "hikaricp_connections_active{pool=\"hang-hikari\"}"}]
+      "targets": [
+        {"refId": "A", "expr": "hikaricp_connections_active{pool=\"hang-hikari\"}", "legendFormat": "active"},
+        {"refId": "B", "expr": "hikaricp_connections_idle{pool=\"hang-hikari\"}", "legendFormat": "idle"},
+        {"refId": "C", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}", "legendFormat": "pending"},
+        {"refId": "D", "expr": "hikaricp_connections_max{pool=\"hang-hikari\"}", "legendFormat": "max"}
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
     },
     {
       "id": 5,
-      "type": "timeseries",
-      "title": "Hikari idle",
-      "gridPos": {"h": 8, "w": 6, "x": 6, "y": 8},
+      "type": "stat",
+      "title": "Hikari active/max now",
+      "gridPos": {"h": 8, "w": 6, "x": 12, "y": 8},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "hikaricp_connections_idle{pool=\"hang-hikari\"}"}]
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green"},
+              {"color": "yellow", "value": 0.7},
+              {"color": "red", "value": 0.85}
+            ]
+          }
+        }
+      },
+      "targets": [
+        {"refId": "A", "expr": "hikaricp_connections_active{pool=\"hang-hikari\"} / clamp_min(hikaricp_connections_max{pool=\"hang-hikari\"}, 1)"}
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      }
     },
     {
       "id": 6,
       "type": "timeseries",
-      "title": "Hikari pending",
-      "gridPos": {"h": 8, "w": 6, "x": 12, "y": 8},
+      "title": "Hikari pressure: pending + timeouts/5m",
+      "gridPos": {"h": 8, "w": 6, "x": 18, "y": 8},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}"}]
+      "targets": [
+        {"refId": "A", "expr": "hikaricp_connections_pending{pool=\"hang-hikari\"}", "legendFormat": "pending"},
+        {"refId": "B", "expr": "increase(hikaricp_connections_timeout_total{pool=\"hang-hikari\"}[5m])", "legendFormat": "timeouts/5m"}
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
     },
     {
       "id": 7,
       "type": "timeseries",
-      "title": "Hikari max",
-      "gridPos": {"h": 8, "w": 6, "x": 18, "y": 8},
+      "title": "Partner pressure: in-flight / bulkhead in use / bulkhead max",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "hikaricp_connections_max{pool=\"hang-hikari\"}"}]
+      "targets": [
+        {"refId": "A", "expr": "hang_partner_inflight{dependency=\"partner-api\"}", "legendFormat": "in-flight"},
+        {"refId": "B", "expr": "resilience4j_bulkhead_max_allowed_concurrent_calls{name=\"partnerApi\"} - resilience4j_bulkhead_available_concurrent_calls{name=\"partnerApi\"}", "legendFormat": "bulkhead in use"},
+        {"refId": "C", "expr": "resilience4j_bulkhead_max_allowed_concurrent_calls{name=\"partnerApi\"}", "legendFormat": "bulkhead max"}
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
     },
     {
       "id": 8,
       "type": "timeseries",
-      "title": "Hikari timeout count",
-      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
-      "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "increase(hikaricp_connections_timeout_total{pool=\"hang-hikari\"}[5m])"}]
-    },
-    {
-      "id": 9,
-      "type": "timeseries",
-      "title": "Partner p95/p99 latency",
-      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "title": "Partner latency p95 / p99",
+      "gridPos": {"h": 8, "w": 6, "x": 12, "y": 16},
       "datasource": {"type": "prometheus", "uid": "mimir"},
       "targets": [
         {"refId": "A", "expr": "histogram_quantile(0.95, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))", "legendFormat": "p95"},
         {"refId": "B", "expr": "histogram_quantile(0.99, sum by (le) (rate(hang_partner_duration_seconds_bucket{dependency=\"partner-api\"}[5m])))", "legendFormat": "p99"}
-      ]
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
     },
     {
-      "id": 10,
+      "id": 9,
       "type": "timeseries",
-      "title": "Partner in-flight",
-      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "title": "Partner failures: timeouts / errors / rejections",
+      "gridPos": {"h": 8, "w": 6, "x": 18, "y": 16},
       "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "hang_partner_inflight{dependency=\"partner-api\"}"}]
-    },
-    {
-      "id": 11,
-      "type": "timeseries",
-      "title": "Partner timeouts",
-      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 24},
-      "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "increase(hang_partner_timeouts_total{dependency=\"partner-api\"}[5m])"}]
-    },
-    {
-      "id": 12,
-      "type": "timeseries",
-      "title": "Partner errors",
-      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 24},
-      "datasource": {"type": "prometheus", "uid": "mimir"},
-      "targets": [{"refId": "A", "expr": "increase(hang_partner_errors_total{dependency=\"partner-api\"}[5m])"}]
+      "targets": [
+        {"refId": "A", "expr": "increase(hang_partner_timeouts_total{dependency=\"partner-api\"}[5m])", "legendFormat": "timeouts/5m"},
+        {"refId": "B", "expr": "increase(hang_partner_errors_total{dependency=\"partner-api\"}[5m])", "legendFormat": "errors/5m"},
+        {"refId": "C", "expr": "increase(hang_partner_rejections_total{dependency=\"partner-api\"}[5m])", "legendFormat": "rejections/5m"}
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
     }
   ]
 }
