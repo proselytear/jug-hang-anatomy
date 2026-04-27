@@ -98,7 +98,7 @@ hang:
       enabled: false
       duration: 1500ms
     bulkhead:
-      enabled: true
+      enabled: false
       max-concurrent-calls: 8
       max-wait-duration: 0ms
     circuit-breaker:
