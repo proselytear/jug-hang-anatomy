@@ -188,7 +188,7 @@ groups:
                 type: prometheus
                 uid: mimir
               editorMode: code
-              expr: tomcat_threads_busy{application="hang-anatomy-demo"} / clamp_min(tomcat_threads_config_max{application="hang-anatomy-demo"}, 1)
+              expr: tomcat_threads_busy_threads{application="hang-anatomy-demo"} / clamp_min(tomcat_threads_config_max_threads{application="hang-anatomy-demo"}, 1)
               instant: true
               intervalMs: 1000
               legendFormat: __auto
