@@ -95,7 +95,7 @@ hang:
     read-timeout: 1800ms
     overall-deadline: 2s
     timeout:
-      enabled: true
+      enabled: false
       duration: 1500ms
     bulkhead:
       enabled: true
