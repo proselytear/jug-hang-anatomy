@@ -7,7 +7,7 @@ GRAFANA_URL := http://localhost:3000
 WIREMOCK_URL := http://localhost:8089
 
 .PHONY: help clean clean-volumes build test up down restart logs logs-infra ps grafana smoke \
-	partner-normal partner-slow partner-very-slow partner-unstable partner-recovery \
+	partner-normal partner-slow partner-very-slow partner-unstable partner-recovery mode-db-pressure mode-tx-hold \
 	test-baseline-load test-mixed-load test-slow-partner-load test-db-pressure-load test-final-load \
 	demo-baseline demo-bulkhead demo-vt demo-final open-grafana dashboard-urls
 
@@ -30,6 +30,8 @@ help:
 	"make partner-very-slow    Switch WireMock to very slow partner mode" \
 	"make partner-unstable     Switch WireMock to unstable partner mode" \
 	"make partner-recovery     Switch WireMock back to recovery mode" \
+	"make mode-db-pressure     Keep partner normal and switch app to DB pressure mode" \
+	"make mode-tx-hold         Keep partner normal and switch app to TX hold mode" \
 	"make test-baseline-load   Run baseline heavy JMeter scenario" \
 	"make test-mixed-load      Run mixed heavy/admin/health JMeter scenario" \
 	"make test-slow-partner-load Run slow-partner JMeter scenario" \
@@ -94,6 +96,12 @@ partner-unstable:
 
 partner-recovery:
 	./scripts/wiremock/reset.sh
+
+mode-db-pressure:
+	./scripts/wiremock/set-db-pressure.sh
+
+mode-tx-hold:
+	./scripts/wiremock/set-tx-hold.sh
 
 test-baseline-load:
 	./load-tests/scripts/run-jmeter.sh baseline-heavy-load

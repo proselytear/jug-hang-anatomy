@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 
 import net.proselyte.demo.hanganatomy.config.HangDemoProperties;
+import net.proselyte.demo.hanganatomy.observability.DemoMode;
 import net.proselyte.demo.hanganatomy.observability.DemoModeRegistry;
 import net.proselyte.demo.hanganatomy.observability.MetricsContract;
 import net.proselyte.demo.hanganatomy.repository.AdminStatusRepository;
@@ -46,18 +47,22 @@ public class CachedDbReadinessHealthIndicator implements HealthIndicator {
     @Override
     public Health health() {
         Instant startedAt = Instant.now();
+        DemoMode mode = demoModeRegistry.currentMode();
         CachedHealth snapshot = cachedHealth.get();
         if (snapshot != null && snapshot.isFresh(properties.health().readinessCacheTtl())) {
             recordDuration("cache_hit", Duration.between(startedAt, Instant.now()));
             return snapshot.health();
         }
 
-        Future<Instant> future = budgetExecutor.submit(adminStatusRepository::ping);
+        Future<Instant> future = budgetExecutor.submit(() -> {
+            maybeSimulateDelay(mode);
+            return adminStatusRepository.ping();
+        });
         try {
             Instant dbTime = future.get(properties.health().readinessTimeout().toMillis(), java.util.concurrent.TimeUnit.MILLISECONDS);
             Health health = Health.up()
                     .withDetail("dbTime", dbTime.toString())
-                    .withDetail("mode", demoModeRegistry.currentMode().token())
+                    .withDetail("mode", mode.token())
                     .build();
             cachedHealth.set(new CachedHealth(health, Instant.now()));
             recordDuration("db_success", Duration.between(startedAt, Instant.now()));
@@ -70,6 +75,19 @@ public class CachedDbReadinessHealthIndicator implements HealthIndicator {
             return down("interrupted", startedAt, ex);
         } catch (ExecutionException ex) {
             return down("query_failure", startedAt, ex.getCause());
+        }
+    }
+
+    private void maybeSimulateDelay(DemoMode mode) {
+        Duration delay = properties.simulatedReadinessDelay(mode);
+        if (delay.isZero() || delay.isNegative()) {
+            return;
+        }
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Interrupted while simulating readiness delay", ex);
         }
     }
 
