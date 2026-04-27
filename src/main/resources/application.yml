@@ -117,7 +117,7 @@ hang:
       max-wait-duration: 0ms
   rate-limiter:
     heavy:
-      enabled: true
+      enabled: false
       limit-for-period: 30
       limit-refresh-period: 1s
       timeout-duration: 0ms
