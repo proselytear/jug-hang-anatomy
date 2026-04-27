@@ -8,6 +8,18 @@ LOKI_URL=${LOKI_URL:-http://localhost:3100}
 MIMIR_URL=${MIMIR_URL:-http://localhost:9009}
 TEMPO_URL=${TEMPO_URL:-http://localhost:3200}
 
+contains_pattern() {
+  local payload=$1
+  local pattern=$2
+
+  if command -v rg >/dev/null 2>&1; then
+    printf "%s" "${payload}" | rg "${pattern}" >/dev/null
+    return $?
+  fi
+
+  printf "%s" "${payload}" | grep -E "${pattern}" >/dev/null
+}
+
 wait_for() {
   local url=$1
   local label=$2
@@ -15,7 +27,7 @@ wait_for() {
   local sleep_seconds=${4:-2}
 
   for _ in $(seq 1 "${attempts}"); do
-    if curl -fsS "${url}" >/dev/null; then
+    if curl -fsS "${url}" >/dev/null 2>/dev/null; then
       return 0
     fi
     sleep "${sleep_seconds}"
@@ -32,7 +44,8 @@ wait_for "${WIREMOCK_URL}/__admin/health" "wiremock"
 wait_for "${LOKI_URL}/ready" "loki"
 wait_for "${MIMIR_URL}/metrics" "mimir"
 wait_for "${TEMPO_URL}/metrics" "tempo"
-curl -fsS "${APP_URL}/actuator/prometheus" | rg "http_server_requests|tomcat_threads_busy|hikaricp_connections_active" >/dev/null
+prometheus_payload=$(curl -fsS "${APP_URL}/actuator/prometheus")
+contains_pattern "${prometheus_payload}" "http_server_requests|tomcat_threads_busy|hikaricp_connections_active"
 
 curl -fsS "${APP_URL}/api/v1/dashboard/00000000-0000-0000-0000-000000000001" >/dev/null
 
