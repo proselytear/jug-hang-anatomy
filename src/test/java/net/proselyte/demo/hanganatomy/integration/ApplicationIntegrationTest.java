@@ -42,7 +42,7 @@ class ApplicationIntegrationTest extends AbstractIntegrationTest {
     }
 
     @Test
-    void partnerTimeoutUsesSnapshotFallback() {
+    void slowPartnerStillReturnsLivePayloadWithoutTimeoutProtection() {
         UUID id = UUID.fromString("00000000-0000-0000-0000-000000000002");
         storeSnapshot(id);
         stubPartnerSlow(2500);
@@ -54,8 +54,8 @@ class ApplicationIntegrationTest extends AbstractIntegrationTest {
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
-        assertThat(response.getBody().outcome()).contains("fallback");
-        assertThat(response.getBody().partner().source()).isEqualTo("snapshot");
+        assertThat(response.getBody().outcome()).isEqualTo("success");
+        assertThat(response.getBody().partner().source()).isEqualTo("live");
     }
 
     @Test
