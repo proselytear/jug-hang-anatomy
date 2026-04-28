@@ -104,7 +104,7 @@ services:
       dockerfile: Dockerfile
     container_name: hang-anatomy-app
     environment:
-      SPRING_PROFILES_ACTIVE: docker,demo-latency
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-docker,demo-latency}
       HANG_OTLP_TRACES_ENDPOINT: http://alloy:4318/v1/traces
       HANG_LOG_FILE: /var/log/hang-anatomy/application.json.log
       JAVA_OPTS: -XX:MaxRAMPercentage=75 -Dfile.encoding=UTF-8

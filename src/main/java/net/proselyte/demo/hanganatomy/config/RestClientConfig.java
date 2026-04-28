@@ -44,6 +44,6 @@ public class RestClientConfig {
 
     @Bean(destroyMethod = "shutdown")
     ExecutorService budgetExecutor() {
-        return Executors.newCachedThreadPool(Thread.ofPlatform().name("budget-exec-", 0).factory());
+        return Executors.newFixedThreadPool(4, Thread.ofPlatform().name("budget-exec-", 0).factory());
     }
 }

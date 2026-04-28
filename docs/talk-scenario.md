@@ -2,6 +2,12 @@
 
 This file is the step-by-step operator guide for the live demo.
 
+Important note:
+
+- the `demo/*` branches are operator checkpoints for the talk
+- some checkpoints reuse the same code tree and only change a runtime toggle or the way you start the app
+- follow the commands in this file rather than assuming that every branch boundary implies a new code diff
+
 ## Baseline Incident
 
 1. `git switch demo/00-baseline`
@@ -49,10 +55,10 @@ This file is the step-by-step operator guide for the live demo.
 ## Virtual Threads Experiment
 
 1. `git switch demo/05-virtual-threads-experiment`
-2. `make up`
+2. `make up-vt`
 3. `make partner-slow`
 4. Open `Hang Anatomy - Virtual Threads Experiment`
-5. Restart the app with the VT profile if needed.
+5. Confirm that the app is running with `SPRING_PROFILES_ACTIVE=docker,demo-latency,vt`.
 6. Show that VT may reduce thread waiting cost.
 7. Show that VT do not create DB connections and do not speed up the partner API.
 
@@ -75,3 +81,15 @@ This file is the step-by-step operator guide for the live demo.
    rate limiter
 7. Close with the thesis:
    `Health = control of waiting queues`
+
+## Branch Map
+
+Real code snapshots currently group like this:
+
+- `demo/00-baseline`
+- `demo/01-incident-observable` and `demo/02-three-queues-dashboard`
+- `demo/03-bulkhead-partner`, `demo/04-health-readiness-fix` and `demo/05-virtual-threads-experiment`
+- `demo/06-timeouts-deadline`
+- `demo/07-circuit-breaker` and `demo/08-short-transactions`
+- `demo/09-db-bulkhead`
+- `demo/10-rate-limiter` and `demo/11-final-reference`

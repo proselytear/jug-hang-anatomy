@@ -102,6 +102,7 @@ Primary workflow:
 - `make build`
 - `make test`
 - `make up`
+- `make up-vt`
 - `make smoke`
 - `make down`
 - `make clean-volumes`
@@ -204,6 +205,23 @@ Planned branch progression:
 - `demo/11-final-reference`
 
 The final reference on `main` should match `demo/11-final-reference`.
+
+Important operator note:
+
+- the `demo/*` branches are presentation checkpoints, not a guarantee that every adjacent branch introduces a new code diff
+- several checkpoints intentionally reuse the same code tree and differ only by runtime mode or a one-line config toggle
+
+Current unique code states:
+
+- `demo/00-baseline`
+- `demo/01-incident-observable` and `demo/02-three-queues-dashboard`
+- `demo/03-bulkhead-partner`, `demo/04-health-readiness-fix` and `demo/05-virtual-threads-experiment`
+- `demo/06-timeouts-deadline`
+- `demo/07-circuit-breaker` and `demo/08-short-transactions`
+- `demo/09-db-bulkhead`
+- `demo/10-rate-limiter` and `demo/11-final-reference`
+
+Virtual threads are profile-driven. Use `make up-vt` or `make demo-vt`; a plain `make up` does not enable the `vt` profile.
 
 ## Dashboards
 
