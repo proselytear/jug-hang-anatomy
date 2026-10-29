@@ -198,7 +198,7 @@ The table describes the historical branch snapshots used in the talk, compared w
 | `demo/03-bulkhead-partner` | Enables partner Bulkhead (`max-concurrent-calls: 8`). |
 | `demo/04-health-readiness-fix` | Same `src` as 03; admin/readiness changes already exist in 01. |
 | `demo/05-virtual-threads-experiment` | Compose enables the `vt` Spring profile by default; Java source is unchanged. |
-| `demo/06-timeouts-deadline` | Enables partner TimeLimiter; the deadline code already exists. |
+| `demo/06-timeouts-deadline` | Enables partner TimeLimiter and returns Compose to platform threads by default; the deadline code already exists. |
 | `demo/07-circuit-breaker` | Enables partner Circuit Breaker. |
 | `demo/08-short-transactions` | Same commit as 07; the outer transaction was removed at 00 → 01. |
 | `demo/09-db-bulkhead` | Enables dashboard DB Bulkhead. |
