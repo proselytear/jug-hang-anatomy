@@ -1,0 +1,410 @@
+{
+  "name": "hang-v5",
+  "networks": {
+    "default": {
+      "name": "hang-v5-default",
+      "ipam": {
+        "config": [
+          {
+            "subnet": "10.253.29.0/24"
+          }
+        ]
+      }
+    }
+  },
+  "services": {
+    "alloy": {
+      "command": [
+        "run",
+        "/etc/alloy/config.alloy",
+        "--server.http.listen-addr=0.0.0.0:12345"
+      ],
+      "container_name": "hang-v5-alloy",
+      "depends_on": {
+        "loki": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "mimir": {
+          "condition": "service_started",
+          "required": true
+        },
+        "tempo": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "grafana/alloy:v1.15.0",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:24317:4317",
+        "127.0.0.1:24318:4318",
+        "127.0.0.1:22346:12345"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/alloy/config.alloy",
+          "target": "/etc/alloy/config.alloy",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "app-logs",
+          "target": "/var/log/hang-anatomy",
+          "read_only": true,
+          "volume": {}
+        }
+      ]
+    },
+    "app": {
+      "command": null,
+      "container_name": "hang-v5-app",
+      "depends_on": {
+        "alloy": {
+          "condition": "service_started",
+          "required": true
+        },
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "wiremock": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "HANG_LOG_FILE": "/var/log/hang-anatomy/application.json.log",
+        "HANG_OTLP_TRACES_ENDPOINT": "http://alloy:4318/v1/traces",
+        "JAVA_OPTS": "-XX:MaxRAMPercentage=70 -Dfile.encoding=UTF-8",
+        "SPRING_PROFILES_ACTIVE": "docker",
+        "SERVER_TOMCAT_THREADS_MAX": "16",
+        "SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE": "6",
+        "SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT": "12000",
+        "HANG_PARTNER_READ_TIMEOUT": "15s",
+        "HANG_PARTNER_OVERALL_DEADLINE": "15s",
+        "HANG_PARTNER_TIMEOUT_ENABLED": "false",
+        "HANG_PARTNER_BULKHEAD_ENABLED": "false",
+        "HANG_PARTNER_CIRCUIT_BREAKER_ENABLED": "false",
+        "HANG_DB_BULKHEAD_ENABLED": "false",
+        "HANG_RATE_LIMITER_HEAVY_ENABLED": "false",
+        "SPRING_CONFIG_LOCATION": "file:/article-config/"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://localhost:8080/actuator/health"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 20
+      },
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:28080:8080"
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "app-logs",
+          "target": "/var/log/hang-anatomy",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/runtime-config",
+          "target": "/article-config",
+          "read_only": true
+        }
+      ],
+      "image": "hang-article-baseline:4575427",
+      "cpus": 2,
+      "mem_limit": "1536m"
+    },
+    "grafana": {
+      "command": null,
+      "container_name": "hang-v5-grafana",
+      "depends_on": {
+        "loki": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "mimir": {
+          "condition": "service_started",
+          "required": true
+        },
+        "tempo": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "GF_AUTH_ANONYMOUS_ENABLED": "false",
+        "GF_SECURITY_ADMIN_PASSWORD": "admin",
+        "GF_SECURITY_ADMIN_USER": "admin"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "wget -qO- http://localhost:3000/api/health || exit 1"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 20
+      },
+      "image": "grafana/grafana:12.0.2",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:23000:3000"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/grafana/provisioning",
+          "target": "/etc/grafana/provisioning",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/grafana/dashboards",
+          "target": "/var/lib/grafana/dashboards",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "grafana-data",
+          "target": "/var/lib/grafana",
+          "volume": {}
+        }
+      ]
+    },
+    "loki": {
+      "command": [
+        "-config.file=/etc/loki/loki.yaml"
+      ],
+      "container_name": "hang-v5-loki",
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "wget -qO- http://localhost:3100/ready || exit 1"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 20
+      },
+      "image": "grafana/loki:3.5.0",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:23100:3100"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/loki/loki.yaml",
+          "target": "/etc/loki/loki.yaml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "loki-data",
+          "target": "/loki",
+          "volume": {}
+        }
+      ]
+    },
+    "mimir": {
+      "command": [
+        "-config.file=/etc/mimir/mimir.yaml"
+      ],
+      "container_name": "hang-v5-mimir",
+      "entrypoint": null,
+      "image": "grafana/mimir:2.15.0",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:29009:9009"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/mimir/mimir.yaml",
+          "target": "/etc/mimir/mimir.yaml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "mimir-data",
+          "target": "/mimir",
+          "volume": {}
+        }
+      ]
+    },
+    "postgres": {
+      "command": null,
+      "container_name": "hang-v5-postgres",
+      "entrypoint": null,
+      "environment": {
+        "POSTGRES_DB": "hanganatomy",
+        "POSTGRES_PASSWORD": "hanganatomy",
+        "POSTGRES_USER": "hanganatomy"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -U hanganatomy -d hanganatomy"
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 20
+      },
+      "image": "postgres:17-alpine",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:25432:5432"
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "postgres-data",
+          "target": "/var/lib/postgresql/data",
+          "volume": {}
+        }
+      ],
+      "cpus": 2
+    },
+    "tempo": {
+      "command": [
+        "-config.file=/etc/tempo/tempo.yaml"
+      ],
+      "container_name": "hang-v5-tempo",
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "/busybox/wget",
+          "-qO-",
+          "http://localhost:3200/metrics"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 20
+      },
+      "image": "grafana/tempo:2.8.2",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:23200:3200"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/tempo/tempo.yaml",
+          "target": "/etc/tempo/tempo.yaml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "tempo-data",
+          "target": "/var/tempo",
+          "volume": {}
+        }
+      ]
+    },
+    "wiremock": {
+      "command": [
+        "--port",
+        "8080",
+        "--verbose",
+        "--global-response-templating",
+        "--root-dir",
+        "/home/wiremock"
+      ],
+      "container_name": "hang-v5-wiremock",
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "wget -qO- http://localhost:8080/__admin/health || exit 1"
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 20
+      },
+      "image": "wiremock/wiremock:3.13.1",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "127.0.0.1:28089:8080"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/private/tmp/hang-v5-experiments-20261029/main/infrastructure/wiremock",
+          "target": "/home/wiremock",
+          "bind": {
+            "create_host_path": true
+          }
+        }
+      ],
+      "cpus": 2
+    }
+  },
+  "volumes": {
+    "app-logs": {
+      "name": "hang-v5-app-logs"
+    },
+    "grafana-data": {
+      "name": "hang-v5-grafana-data"
+    },
+    "loki-data": {
+      "name": "hang-v5-loki-data"
+    },
+    "mimir-data": {
+      "name": "hang-v5-mimir-data"
+    },
+    "postgres-data": {
+      "name": "hang-v5-postgres-data"
+    },
+    "tempo-data": {
+      "name": "hang-v5-tempo-data"
+    }
+  }
+}

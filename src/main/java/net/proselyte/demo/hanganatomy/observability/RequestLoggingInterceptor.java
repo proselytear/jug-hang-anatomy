@@ -14,6 +14,7 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
 
     private static final Logger log = LoggerFactory.getLogger(RequestLoggingInterceptor.class);
     private static final String START_NANOS_ATTRIBUTE = RequestLoggingInterceptor.class.getName() + ".start";
+    public static final String OUTCOME_ATTRIBUTE = RequestLoggingInterceptor.class.getName() + ".outcome";
 
     private final DemoModeRegistry demoModeRegistry;
 
@@ -33,7 +34,7 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         Object startNanos = request.getAttribute(START_NANOS_ATTRIBUTE);
         long durationMs = startNanos instanceof Long started ? (System.nanoTime() - started) / 1_000_000 : -1;
-        MDC.put(MetricsContract.TAG_OUTCOME, outcome(response, ex));
+        MDC.put(MetricsContract.TAG_OUTCOME, outcome(request, response, ex));
         MDC.put("durationMs", Long.toString(durationMs));
         log.info("Handled request");
         MDC.remove("durationMs");
@@ -50,9 +51,13 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
         return request.getRequestURI();
     }
 
-    private String outcome(HttpServletResponse response, Exception ex) {
+    private String outcome(HttpServletRequest request, HttpServletResponse response, Exception ex) {
         if (ex != null) {
             return "exception";
+        }
+        Object actualOutcome = request.getAttribute(OUTCOME_ATTRIBUTE);
+        if (response.getStatus() < 400 && actualOutcome instanceof String value && !value.isBlank()) {
+            return value;
         }
         return response.getStatus() >= 500 ? "server_error" : response.getStatus() >= 400 ? "client_error" : "success";
     }

@@ -4,6 +4,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -33,8 +35,9 @@ public class RestClientConfig {
     }
 
     @Bean(destroyMethod = "shutdown")
-    ExecutorService partnerExecutor() {
-        return Executors.newFixedThreadPool(16, Thread.ofPlatform().name("partner-exec-", 0).factory());
+    ExecutorService partnerExecutor(MeterRegistry meterRegistry) {
+        ExecutorService executor = Executors.newFixedThreadPool(16, Thread.ofPlatform().name("partner-exec-", 0).factory());
+        return ExecutorServiceMetrics.monitor(meterRegistry, executor, "partner-executor");
     }
 
     @Bean(destroyMethod = "shutdown")
@@ -43,7 +46,8 @@ public class RestClientConfig {
     }
 
     @Bean(destroyMethod = "shutdown")
-    ExecutorService budgetExecutor() {
-        return Executors.newFixedThreadPool(4, Thread.ofPlatform().name("budget-exec-", 0).factory());
+    ExecutorService budgetExecutor(MeterRegistry meterRegistry) {
+        ExecutorService executor = Executors.newCachedThreadPool(Thread.ofPlatform().name("budget-exec-", 0).factory());
+        return ExecutorServiceMetrics.monitor(meterRegistry, executor, "budget-executor");
     }
 }

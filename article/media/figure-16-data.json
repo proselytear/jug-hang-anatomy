@@ -1,0 +1,167 @@
+[
+  {
+    "run": "baseline-slow-pg",
+    "label": "baseline slow",
+    "source": "raw_jsonl_2026-10-29",
+    "launch_seconds": 60.0,
+    "counts": [
+      60,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 60
+  },
+  {
+    "run": "short-slow",
+    "label": "short slow",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 60,
+    "counts": [
+      144,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 144
+  },
+  {
+    "run": "bulkhead-slow",
+    "label": "partner Bulkhead",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 60,
+    "counts": [
+      96,
+      240,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 336
+  },
+  {
+    "run": "vt-slow",
+    "label": "VT slow",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 60,
+    "counts": [
+      144,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 144
+  },
+  {
+    "run": "tx-hold",
+    "label": "tx hold",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 40,
+    "counts": [
+      264,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 264
+  },
+  {
+    "run": "tx-hold-guard",
+    "label": "DB Bulkhead",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 40,
+    "counts": [
+      150,
+      0,
+      240,
+      0,
+      0,
+      0
+    ],
+    "n": 390
+  },
+  {
+    "run": "cb-local-normal",
+    "label": "CB быстрый API",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 30,
+    "counts": [
+      10,
+      346,
+      4,
+      0,
+      0,
+      0
+    ],
+    "n": 360
+  },
+  {
+    "run": "rate-limiter-clean",
+    "label": "Rate Limiter",
+    "source": "raw_jsonl_2026-10-29",
+    "launch_seconds": 15.0,
+    "counts": [
+      27,
+      372,
+      201,
+      0,
+      0,
+      0
+    ],
+    "n": 600
+  },
+  {
+    "run": "final-slow",
+    "label": "final slow",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 60,
+    "counts": [
+      0,
+      712,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 712
+  },
+  {
+    "run": "final-recovery",
+    "label": "восстановление 12",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 45,
+    "counts": [
+      76,
+      462,
+      3,
+      0,
+      0,
+      0
+    ],
+    "n": 541
+  },
+  {
+    "run": "final-recovered",
+    "label": "normal 6",
+    "source": "published_v4_aggregates",
+    "launch_seconds": 30,
+    "counts": [
+      180,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 180
+  }
+]

@@ -1,0 +1,13 @@
+run,launch_seconds,live,snapshot,http_429,http_503,http_504,transport_error,unclassified_http_200
+baseline-slow,90,,,0,0,0,0,97
+short-slow,60,144,0,0,0,0,0,0
+bulkhead-slow,60,96,240,0,0,0,0,0
+vt-slow,60,144,0,0,0,0,0,0
+tx-hold,40,264,0,0,0,0,0,0
+tx-hold-guard,40,150,0,240,0,0,0,0
+cb-local-normal,30,10,346,4,0,0,0,0
+rate-limit-normal,15,19,418,163,0,0,0,0
+final-slow,60,0,712,0,0,0,0,0
+final-recovery,45,76,462,3,0,0,0,0
+final-steady,45,57,483,0,0,0,0,0
+final-recovered,30,180,0,0,0,0,0,0

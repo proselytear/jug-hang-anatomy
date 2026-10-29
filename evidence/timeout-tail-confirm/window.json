@@ -1,0 +1,9 @@
+{
+  "pattern": "single simultaneous wave8requests",
+  "warmup_seconds": 0,
+  "start_utc": "2026-10-29T20:29:07.825Z",
+  "last_response_utc": "2026-10-29T20:29:08.905Z",
+  "dump_start_utc": "2026-10-29T20:29:10.907Z",
+  "partner_delay_ms": 5000,
+  "observed_until_utc": "2026-10-29T20:29:15.939Z"
+}

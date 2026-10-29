@@ -1,0 +1,57 @@
+{
+  "run": "cb-slow-prerequisite",
+  "created_utc": "2026-10-29T20:26:35.288989+00:00",
+  "source_commit": "8c14914cb6b5533614cfae6e1035fe61c5a4c1de",
+  "source_working_tree_changes": false,
+  "profile": "docker",
+  "environment": {
+    "HANG_LOG_FILE": "/var/log/hang-anatomy/application.json.log",
+    "HANG_OTLP_TRACES_ENDPOINT": "http://alloy:4318/v1/traces",
+    "JAVA_OPTS": "-XX:MaxRAMPercentage=70 -Dfile.encoding=UTF-8",
+    "SPRING_PROFILES_ACTIVE": "docker",
+    "SPRING_CONFIG_LOCATION": "file:/article-config/"
+  },
+  "app_image": "hang-article-main:8c14914",
+  "cpu_limit": 2,
+  "memory_limit": "1536m",
+  "wiremock_mode": "slow",
+  "wiremock_fixed_delay_ms": 5000,
+  "harness": "closed_loop.py",
+  "measurement_clock": "UTC",
+  "metrics_scrape": "direct /actuator/prometheus every1s,timeout4s; raw txt; failures in scrape-events.jsonl",
+  "background": "readiness/liveness clients every5s when --probes; Dockerroothealth10s; Alloy original5sscrape",
+  "external_config_workaround": "original YAML copied externally, spring.datasource.hikari.pool-name removed and spring.datasource.name set beforebinding; no Java/JARchanges",
+  "config_sha256": {
+    "application-demo-latency.yml": "c074ce30a99862e0876707bae89b23c33edde5f9ec316a2c65d7d45d90984622",
+    "application-docker.yml": "9e7b1c7bea3873f0ddce17aec483741b269edbda7d284ed4196c02ab81f69a62",
+    "application.yml": "7a03946c6d706cab98e82279ee56b2918f63e4d55fb43d55b4115fe7eeb841b9",
+    "application-local.yml": "ce00fbb8914932a5dfce182f3895e03c1e03025c7e43f7ef501ab91349f71c62",
+    "application-vt.yml": "d71d265a4a92b931755f23836abea1dcba2d5f0c9e6c567e8fcc747ed89d1104"
+  },
+  "cpu_metric": "process_cpu_usage (fraction reportedbyJDKgetProcessCpuLoad; do not reinterpret hardwaredenominator)",
+  "notes": [
+    "Same process for cb-slow-prerequisite then cb-recovery-explain; fresh JVM/CB before slow; preloaded snapshot count278 for measured dashboard before restart.",
+    "Full original main defaults: Tomcat32,Hikari10,connectionTimeout750ms,read1800ms,overall2s,TimeLimiter1500ms,all5guardsenabled."
+  ],
+  "image_id": "sha256:44f29f1caab47ea6b267a62c90da6e997d16e234417327db1fb71ddd4302da37",
+  "image_created_utc": "2026-10-23T10:38:35.053456051Z",
+  "java_version": "25.0.3",
+  "spring_boot_version": "4.0.6",
+  "tomcat_version": "11.0.21",
+  "source_jar_sha256": "d5f9e584f1a704f2c3ecd5a5a8fb76e37c708b06f8bec75e4be78609e88d4d8f",
+  "load": {
+    "start_utc": "2026-10-29T20:26:35.361Z",
+    "start_epoch": 1793305595.361634,
+    "warmup_seconds": 0.0,
+    "measurement_seconds": 60.0,
+    "pace_seconds": 1,
+    "heavy": 12,
+    "admin": 1,
+    "health": 1,
+    "client_timeout_seconds": 45,
+    "selection": "request start timestamp; in-flight requests drained after launch window",
+    "readiness_liveness_probes_every_seconds": 5
+  },
+  "application_mode": "slow-partner",
+  "metric_scope": "All endpoint bodies saved. CPU process_cpu_usage is raw JDK/Micrometergauge; missing polls notzero. system_cpu_count=2."
+}

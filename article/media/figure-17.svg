@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1100" height="650" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1100 650" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1100" height="650"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-650)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1100" height="650" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="40" y="610" style="font-family: Arial; font-size: 27px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1220) scale(1,-1)">Тайм-аут клиента и освобождение ресурсов</text>
+			<text x="40" y="577" style="font-family: Arial; font-size: 20px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,1154) scale(1,-1)">Повторный опыт 29 октября, восемь запросов. Точки соответствуют исходным опросам метрик.</text>
+			<path d="M 75,160 L 1015,160 Z" style="stroke: rgb(80%,83%,86%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="44.9892578125" y="155.0" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,310) scale(1,-1)">0</text>
+			<path d="M 75,240 L 1015,240 Z" style="stroke: rgb(80%,83%,86%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="44.9892578125" y="235.0" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,470) scale(1,-1)">2</text>
+			<path d="M 75,320 L 1015,320 Z" style="stroke: rgb(80%,83%,86%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="44.9892578125" y="315.0" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,630) scale(1,-1)">4</text>
+			<path d="M 75,400 L 1015,400 Z" style="stroke: rgb(80%,83%,86%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="44.9892578125" y="395.0" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,790) scale(1,-1)">6</text>
+			<path d="M 75,480 L 1015,480 Z" style="stroke: rgb(80%,83%,86%); stroke-linecap: butt; stroke-width: 1;"/>
+			<text x="44.9892578125" y="475.0" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,950) scale(1,-1)">8</text>
+			<text x="69.99462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">0</text>
+			<text x="187.49462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">1</text>
+			<text x="304.99462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">2</text>
+			<text x="422.49462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">3</text>
+			<text x="539.99462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">4</text>
+			<text x="657.49462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">5</text>
+			<text x="774.99462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">6</text>
+			<text x="892.49462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">7</text>
+			<text x="1009.99462890625" y="128" style="font-family: Arial; font-size: 18px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,256) scale(1,-1)">8</text>
+			<polyline points="76.40998 160, 194.0275 480, 310.94 480, 428.675 480, 546.175 480, 663.5575 480, 780.8225 160, 898.3225 160, 1016.175 160" style="stroke: rgb(13%,35%,50%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<circle cx="76.40998184680939" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="194.0275013446808" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="310.9399878978729" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="428.6749988794327" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="546.1749988794327" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="663.5575073957443" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="780.8224964141846" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="898.3224964141846" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<circle cx="1016.1749988794327" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,50%); fill-rule: evenodd;"/>
+			<polyline points="76.40998 480, 194.0275 160, 310.94 160, 428.675 160, 546.175 160, 663.5575 160, 780.8225 480, 898.3225 480, 1016.175 480" style="stroke: rgb(64%,41%,10%); stroke-linecap: butt; stroke-width: 4; fill: None; fill-rule: evenodd;"/>
+			<circle cx="76.40998184680939" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="194.0275013446808" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="310.9399878978729" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="428.6749988794327" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="546.1749988794327" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="663.5575073957443" cy="160.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="780.8224964141846" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="898.3224964141846" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<circle cx="1016.1749988794327" cy="480.0" r="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,41%,10%); fill-rule: evenodd;"/>
+			<path d="M 201.899991,160 L 201.899991,480 Z" style="stroke: rgb(72%,21%,21%); stroke-linecap: butt; stroke-width: 2; stroke-dasharray: 7, 6;"/>
+			<path d="M 662.5,160 L 662.5,480 Z" style="stroke: rgb(39%,45%,50%); stroke-linecap: butt; stroke-width: 2; stroke-dasharray: 7, 6;"/>
+			<text x="214.89999103546143" y="524" style="font-family: Arial; font-size: 18px;fill: rgb(72%,21%,21%); stroke:none;" transform="translate(0,1048) scale(1,-1)">Последний ответ клиенту</text>
+			<text x="214.89999103546143" y="499" style="font-family: Arial; font-size: 18px;fill: rgb(72%,21%,21%); stroke:none;" transform="translate(0,998) scale(1,-1)">1,08 с</text>
+			<text x="674.5" y="524" style="font-family: Arial; font-size: 18px;fill: rgb(39%,45%,50%); stroke:none;" transform="translate(0,1048) scale(1,-1)">5 с заданная задержка API</text>
+			<text x="428.02734375" y="94" style="font-family: Arial; font-size: 20px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,188) scale(1,-1)">Секунды от запуска серии</text>
+			<path d="M 65,50 L 105,50 Z" style="stroke: rgb(13%,35%,50%); stroke-linecap: butt; stroke-width: 4;"/>
+			<text x="120" y="44" style="font-family: Arial; font-size: 20px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,88) scale(1,-1)">Выполняющиеся HTTP-вызовы</text>
+			<path d="M 600,50 L 640,50 Z" style="stroke: rgb(64%,41%,10%); stroke-linecap: butt; stroke-width: 4;"/>
+			<text x="655" y="44" style="font-family: Arial; font-size: 20px;fill: rgb(9%,12%,16%); stroke:none;" transform="translate(0,88) scale(1,-1)">Свободные разрешения Bulkhead</text>
+		</g>
+	</g>
+</svg>
