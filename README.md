@@ -35,7 +35,7 @@ The main branch contains the final reference state. The `demo/*` branches are in
 - Spring Boot `4.0.6` is used as the current stable Spring Boot 4 release.
 - Spring Boot 4 uses Jackson 3 packages (`tools.jackson.*`), so the project is already aligned to that namespace.
 - Gradle wrapper is pinned to `9.1.0`, because older Gradle lines were not stable enough in this environment with Java 25.
-- The Docker runtime image uses `eclipse-temurin:25-jdk` instead of a smaller JRE image. This keeps Java 25 availability predictable; see [docs/troubleshooting.md](/Users/proselyte/Documents/@proselyte/conf/jug-freeze-anatomy/docs/troubleshooting.md) for rationale.
+- The Docker runtime image uses `eclipse-temurin:25-jdk` instead of a smaller JRE image. This keeps Java 25 availability predictable; see [docs/troubleshooting.md](docs/troubleshooting.md) for rationale.
 - The load runner is pinned to `justb4/jmeter:5.5` because newer `5.6.x` tags were not reliably available from public registries in this environment.
 
 ## Quick Start
@@ -150,9 +150,9 @@ Request path for the heavy endpoint:
 
 More detail:
 
-- [docs/architecture.md](/Users/proselyte/Documents/@proselyte/conf/jug-freeze-anatomy/docs/architecture.md)
-- [docs/observability.md](/Users/proselyte/Documents/@proselyte/conf/jug-freeze-anatomy/docs/observability.md)
-- [docs/talk-scenario.md](/Users/proselyte/Documents/@proselyte/conf/jug-freeze-anatomy/docs/talk-scenario.md)
+- [docs/architecture.md](docs/architecture.md)
+- [docs/observability.md](docs/observability.md)
+- [docs/talk-scenario.md](docs/talk-scenario.md)
 
 ## Demo Scenario
 
@@ -188,22 +188,27 @@ DURATION=20 THREADS=24 RAMP_UP=3 make test-db-pressure-load
 
 ## Branch Guide
 
-Planned branch progression:
+The table describes the branch snapshots used in the talk, compared with the preceding row. Branch names alone do not establish that a single protection changed.
 
-- `demo/00-baseline`
-- `demo/01-incident-observable`
-- `demo/02-three-queues-dashboard`
-- `demo/03-bulkhead-partner`
-- `demo/04-health-readiness-fix`
-- `demo/05-virtual-threads-experiment`
-- `demo/06-timeouts-deadline`
-- `demo/07-circuit-breaker`
-- `demo/08-short-transactions`
-- `demo/09-db-bulkhead`
-- `demo/10-rate-limiter`
-- `demo/11-final-reference`
+| Branch | Change relative to the preceding snapshot |
+| --- | --- |
+| `demo/00-baseline` | Outer read-only transaction includes the partner HTTP call; partner protections, DB Bulkhead and Rate Limiter disabled. |
+| `demo/01-incident-observable` | Removes the outer transaction, changes admin/readiness to bounded cached reads, and creates the request deadline before the DB read. Several changes arrive together. |
+| `demo/02-three-queues-dashboard` | Same `src` as 01; no additional runtime protection. |
+| `demo/03-bulkhead-partner` | Enables partner Bulkhead (`max-concurrent-calls: 8`). |
+| `demo/04-health-readiness-fix` | Same `src` as 03; admin/readiness changes already exist in 01. |
+| `demo/05-virtual-threads-experiment` | Compose enables the `vt` Spring profile by default; Java source is unchanged. |
+| `demo/06-timeouts-deadline` | Enables partner TimeLimiter; the deadline code already exists. |
+| `demo/07-circuit-breaker` | Enables partner Circuit Breaker. |
+| `demo/08-short-transactions` | Same commit as 07; the outer transaction was removed at 00 → 01. |
+| `demo/09-db-bulkhead` | Enables dashboard DB Bulkhead. |
+| `demo/10-rate-limiter` | Enables heavy endpoint Rate Limiter. |
+| `demo/11-final-reference` | Historical talk snapshot: `budgetExecutor` has four fixed platform threads. |
+| `main` | Uses a cached `budgetExecutor`, whose thread count can grow with blocked control-plane operations. |
 
-The final reference on `main` should match `demo/11-final-reference`.
+The historical `demo/11-final-reference` and `main` snapshots differ. Use the commit specified alongside an article experiment. Do not substitute a branch tip for a measured commit. See [the reproduction guide](docs/article-reproduction.md) for the article setup and load model.
+
+The Docker default includes `demo-latency`, which overrides timeouts, pool limits and artificial delays. A comparison must preserve the same active profiles, effective configuration and load. Comparing 00 with 03 also changes transaction scope; isolate Bulkhead by toggling its property on the same code version.
 
 ## Dashboards
 
@@ -226,7 +231,7 @@ make dashboard-urls
 
 See:
 
-- [docs/troubleshooting.md](/Users/proselyte/Documents/@proselyte/conf/jug-freeze-anatomy/docs/troubleshooting.md)
+- [docs/troubleshooting.md](docs/troubleshooting.md)
 
 Typical issues:
 
