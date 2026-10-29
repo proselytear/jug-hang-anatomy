@@ -188,7 +188,7 @@ DURATION=20 THREADS=24 RAMP_UP=3 make test-db-pressure-load
 
 ## Branch Guide
 
-The table describes the branch snapshots used in the talk, compared with the preceding row. Branch names alone do not establish that a single protection changed.
+The table describes the historical branch snapshots used in the talk, compared with the preceding row. Branch names alone do not establish that a single protection changed.
 
 | Branch | Change relative to the preceding snapshot |
 | --- | --- |
@@ -203,10 +203,10 @@ The table describes the branch snapshots used in the talk, compared with the pre
 | `demo/08-short-transactions` | Same commit as 07; the outer transaction was removed at 00 → 01. |
 | `demo/09-db-bulkhead` | Enables dashboard DB Bulkhead. |
 | `demo/10-rate-limiter` | Enables heavy endpoint Rate Limiter. |
-| `demo/11-final-reference` | Historical talk snapshot: `budgetExecutor` has four fixed platform threads. |
-| `main` | Uses a cached `budgetExecutor`, whose thread count can grow with blocked control-plane operations. |
+| `demo/11-final-reference` at `146e11b` | Historical talk snapshot: `budgetExecutor` has four fixed platform threads. |
+| `main` at `8c14914` | Uses a cached `budgetExecutor`, whose thread count can grow with blocked control-plane operations. |
 
-The historical `demo/11-final-reference` and `main` snapshots differ. Use the commit specified alongside an article experiment. Do not substitute a branch tip for a measured commit. See [the reproduction guide](docs/article-reproduction.md) for the article setup and load model.
+The historical commits `146e11b` and `8c14914` differ. The article v5 update retains the cached pool and adds executor metrics and explicit request outcomes. Synchronization of the final-reference branch is a separate merge, which preserves the historical commits. Use the commit specified alongside an article experiment. Do not substitute a branch tip for a measured commit. See [the reproduction guide](docs/article-reproduction.md) for the article setup and load model.
 
 The Docker default includes `demo-latency`, which overrides timeouts, pool limits and artificial delays. A comparison must preserve the same active profiles, effective configuration and load. Comparing 00 with 03 also changes transaction scope; isolate Bulkhead by toggling its property on the same code version.
 
