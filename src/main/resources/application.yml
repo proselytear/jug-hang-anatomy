@@ -7,9 +7,9 @@ spring:
     virtual:
       enabled: false
   datasource:
+    name: hang-hikari
     driver-class-name: org.postgresql.Driver
     hikari:
-      pool-name: hang-hikari
       maximum-pool-size: 10
       minimum-idle: 2
       connection-timeout: 750
