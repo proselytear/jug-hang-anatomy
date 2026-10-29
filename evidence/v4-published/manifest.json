@@ -1,0 +1,14 @@
+{
+  "source": "Published article DOCX produced 2026-10-23",
+  "sha256": "0fdfc0ca3d27020f24fe3afb5e313848b49dd7f3cd68c92e8fc242cdc3eac200",
+  "measured_commits": [
+    "457542776c916e55fefe63fddd8ce88dbd6a3b9a",
+    "8c14914cb6b5533614cfae6e1035fe61c5a4c1de"
+  ],
+  "provenance": "Published aggregates and embedded figures, not raw observations",
+  "raw_requests_available": false,
+  "raw_scrapes_available": false,
+  "full_original_thread_dumps_available": false,
+  "do_not_reconstruct_raw_jsonl": true,
+  "timezone": "UTC (text of old timeout-tail uses MSK; article v5 converts those same instants to UTC)"
+}

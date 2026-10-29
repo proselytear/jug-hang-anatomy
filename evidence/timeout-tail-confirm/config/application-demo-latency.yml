@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 6
+      minimum-idle: 1
+      connection-timeout: 12000
+      leak-detection-threshold: 20000
+
+server:
+  tomcat:
+    threads:
+      max: 16
+      min-spare: 4
+    accept-count: 64
+
+hang:
+  demo:
+    simulated-db-delay:
+      normal: 0ms
+      slow-partner: 1500ms
+      very-slow-partner: 3000ms
+      unstable-partner: 1500ms
+      db-pressure: 7000ms
+      tx-hold: 12000ms
+      recovery: 0ms
+  partner:
+    connect-timeout: 500ms
+    read-timeout: 15s
+    overall-deadline: 15s
+    timeout:
+      duration: 12s
+  admin:
+    cache-ttl: 0s
+    db-timeout: 12s
+    simulated-delay:
+      normal: 0ms
+      slow-partner: 2000ms
+      very-slow-partner: 5000ms
+      unstable-partner: 2500ms
+      db-pressure: 8000ms
+      tx-hold: 12000ms
+      recovery: 0ms
+  health:
+    readiness-cache-ttl: 0s
+    readiness-timeout: 12s
+    simulated-delay:
+      normal: 0ms
+      slow-partner: 2000ms
+      very-slow-partner: 5000ms
+      unstable-partner: 2500ms
+      db-pressure: 8000ms
+      tx-hold: 12000ms
+      recovery: 0ms

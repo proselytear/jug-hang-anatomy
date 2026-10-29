@@ -1,0 +1,13 @@
+{
+  "start_utc": "2026-10-29T20:22:27.790Z",
+  "start_epoch": 1793305347.790755,
+  "warmup_seconds": 10.0,
+  "measurement_seconds": 60.0,
+  "pace_seconds": 1,
+  "heavy": 12,
+  "admin": 1,
+  "health": 1,
+  "client_timeout_seconds": 45,
+  "selection": "request start timestamp; in-flight requests drained after launch window",
+  "readiness_liveness_probes_every_seconds": 5
+}

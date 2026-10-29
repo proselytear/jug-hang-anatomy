@@ -1,0 +1,213 @@
+{
+  "responses": 8,
+  "all_http_200": true,
+  "all_fallback_timeout": true,
+  "latency_min_ms": 1078.1812499917578,
+  "latency_max_ms": 1079.6670420095325,
+  "counters": {
+    "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": {
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": {
+      "before": 10.0,
+      "after": 10.0,
+      "delta": 0.0
+    },
+    "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": {
+      "before": 8.0,
+      "after": 8.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": {
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": {
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": {
+      "before": 0.0,
+      "after": 8.0,
+      "delta": 8.0
+    },
+    "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": {
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": {
+      "before": 0.0,
+      "after": 8.0,
+      "delta": 8.0
+    }
+  },
+  "timeline": [
+    {
+      "index": 0,
+      "start_utc": "2026-10-29T20:29:07.825Z",
+      "end_utc": "2026-10-29T20:29:07.837Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 0.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0
+      }
+    },
+    {
+      "index": 1,
+      "start_utc": "2026-10-29T20:29:08.825Z",
+      "end_utc": "2026-10-29T20:29:08.838Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 8.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0
+      }
+    },
+    {
+      "index": 2,
+      "start_utc": "2026-10-29T20:29:09.826Z",
+      "end_utc": "2026-10-29T20:29:09.833Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 8.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0
+      }
+    },
+    {
+      "index": 3,
+      "start_utc": "2026-10-29T20:29:10.827Z",
+      "end_utc": "2026-10-29T20:29:10.835Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 8.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0
+      }
+    },
+    {
+      "index": 4,
+      "start_utc": "2026-10-29T20:29:11.828Z",
+      "end_utc": "2026-10-29T20:29:11.835Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 8.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0
+      }
+    },
+    {
+      "index": 5,
+      "start_utc": "2026-10-29T20:29:12.828Z",
+      "end_utc": "2026-10-29T20:29:12.834Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 8.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 0.0
+      }
+    },
+    {
+      "index": 6,
+      "start_utc": "2026-10-29T20:29:13.825Z",
+      "end_utc": "2026-10-29T20:29:13.832Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 0.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 8.0
+      }
+    },
+    {
+      "index": 7,
+      "start_utc": "2026-10-29T20:29:14.825Z",
+      "end_utc": "2026-10-29T20:29:14.832Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 0.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 8.0
+      }
+    },
+    {
+      "index": 8,
+      "start_utc": "2026-10-29T20:29:15.829Z",
+      "end_utc": "2026-10-29T20:29:15.835Z",
+      "phase": "measurement",
+      "status": 200,
+      "error": null,
+      "metrics": {
+        "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": 0.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"dashboardDb\"}": 10.0,
+        "resilience4j_bulkhead_available_concurrent_calls{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 8.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": 0.0,
+        "resilience4j_circuitbreaker_slow_calls{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": 8.0
+      }
+    }
+  ]
+}

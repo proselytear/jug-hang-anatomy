@@ -30,9 +30,21 @@ The main branch contains the final reference state. The `demo/*` branches are in
 - Docker Compose
 - Makefile
 
+## Article and measurements
+
+- [Russian article v5](article/v5.md)
+- [Reproduction procedure and Python generator](docs/article-reproduction.md)
+- [New measurement files and checksums](evidence/manifest.json)
+- [Origin of the published October 23 aggregates](evidence/v4-published/manifest.json)
+
+Article measurements pin `4575427` and `8c14914`. Later logging, executor metrics,
+and Hikari startup fixes do not change those historical results. The raw files
+of the October 23 series were not retained; its published DOCX and aggregates
+are preserved separately. The October 29 runs include raw requests and scrapes.
+
 ## Compatibility Notes
 
-- Spring Boot `4.0.6` is used as the current stable Spring Boot 4 release.
+- Spring Boot is pinned to `4.0.6` in this demonstration.
 - Spring Boot 4 uses Jackson 3 packages (`tools.jackson.*`), so the project is already aligned to that namespace.
 - Gradle wrapper is pinned to `9.1.0`, because older Gradle lines were not stable enough in this environment with Java 25.
 - The Docker runtime image uses `eclipse-temurin:25-jdk` instead of a smaller JRE image. This keeps Java 25 availability predictable; see [docs/troubleshooting.md](docs/troubleshooting.md) for rationale.
