@@ -6,7 +6,7 @@ APP_URL := http://localhost:8080
 GRAFANA_URL := http://localhost:3000
 WIREMOCK_URL := http://localhost:8089
 
-.PHONY: help clean clean-volumes build test up up-vt down restart logs logs-infra ps grafana smoke \
+.PHONY: help clean clean-volumes build test up down restart logs logs-infra ps grafana smoke \
 	partner-normal partner-slow partner-very-slow partner-unstable partner-recovery mode-db-pressure mode-tx-hold \
 	test-baseline-load test-mixed-load test-slow-partner-load test-db-pressure-load test-final-load \
 	demo-baseline demo-bulkhead demo-vt demo-final open-grafana dashboard-urls
@@ -16,7 +16,6 @@ help:
 	"make build                Build bootJar with Gradle wrapper" \
 	"make test                 Run unit, integration, observability and architecture tests" \
 	"make up                   Start the full demo stack and run smoke checks" \
-	"make up-vt                Start the stack with the vt profile enabled" \
 	"make down                 Stop the stack" \
 	"make clean                Alias of down" \
 	"make clean-volumes        Stop the stack and remove named volumes" \
@@ -58,10 +57,6 @@ test:
 
 up:
 	$(COMPOSE) up -d --build
-	./scripts/smoke/check-stack.sh
-
-up-vt:
-	SPRING_PROFILES_ACTIVE=docker,demo-latency,vt $(COMPOSE) up -d --build
 	./scripts/smoke/check-stack.sh
 
 down:
@@ -135,7 +130,7 @@ demo-bulkhead:
 
 demo-vt:
 	git switch demo/05-virtual-threads-experiment
-	$(MAKE) up-vt
+	$(MAKE) up
 	$(MAKE) partner-slow
 
 demo-final:

@@ -1,0 +1,996 @@
+# HELP application_ready_time_seconds Time taken for the application to be ready to service requests
+# TYPE application_ready_time_seconds gauge
+application_ready_time_seconds{application="hang-anatomy-demo",main_application_class="net.proselyte.demo.hanganatomy.HangAnatomyApplication"} 3.14
+# HELP application_started_time_seconds Time taken to start the application
+# TYPE application_started_time_seconds gauge
+application_started_time_seconds{application="hang-anatomy-demo",main_application_class="net.proselyte.demo.hanganatomy.HangAnatomyApplication"} 3.135
+# HELP disk_free_bytes Usable space for path
+# TYPE disk_free_bytes gauge
+disk_free_bytes{application="hang-anatomy-demo",path="/app/."} 6.42652987392E11
+# HELP disk_total_bytes Total space for path
+# TYPE disk_total_bytes gauge
+disk_total_bytes{application="hang-anatomy-demo",path="/app/."} 9.77896124416E11
+# HELP hang_demo_mode Current demo mode marker gauge
+# TYPE hang_demo_mode gauge
+hang_demo_mode{application="hang-anatomy-demo",mode="db-pressure"} 0.0
+hang_demo_mode{application="hang-anatomy-demo",mode="normal"} 1.0
+hang_demo_mode{application="hang-anatomy-demo",mode="recovery"} 0.0
+hang_demo_mode{application="hang-anatomy-demo",mode="slow-partner"} 0.0
+hang_demo_mode{application="hang-anatomy-demo",mode="tx-hold"} 0.0
+hang_demo_mode{application="hang-anatomy-demo",mode="unstable-partner"} 0.0
+hang_demo_mode{application="hang-anatomy-demo",mode="very-slow-partner"} 0.0
+# HELP hang_partner_duration_seconds Partner API duration
+# TYPE hang_partner_duration_seconds histogram
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.001"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.001048576"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.001398101"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.001747626"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.002097151"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.002446676"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.002796201"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.003145726"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.003495251"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.003844776"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.004194304"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.005592405"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.006990506"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.008388607"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.009786708"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.011184809"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.01258291"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.013981011"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.015379112"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.016777216"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.022369621"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.027962026"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.033554431"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.039146836"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.044739241"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.050331646"} 0
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.055924051"} 707
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.061516456"} 782
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.067108864"} 787
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.089478485"} 789
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.111848106"} 789
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.134217727"} 789
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.156587348"} 790
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.178956969"} 790
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.20132659"} 790
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.223696211"} 790
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.246065832"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.268435456"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.357913941"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.447392426"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.536870911"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.626349396"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.715827881"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.805306366"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.894784851"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="0.984263336"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="1.073741824"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="1.431655765"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="1.789569706"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="2.147483647"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="2.505397588"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="2.863311529"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="3.22122547"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="3.579139411"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="3.937053352"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="4.294967296"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="5.726623061"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="7.158278826"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="8.589934591"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="10.021590356"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="11.453246121"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="12.884901886"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="14.316557651"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="15.748213416"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="17.179869184"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="22.906492245"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="28.633115306"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="30.0"} 792
+hang_partner_duration_seconds_bucket{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success",le="+Inf"} 792
+hang_partner_duration_seconds_count{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success"} 792
+hang_partner_duration_seconds_sum{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success"} 42.831277151
+# HELP hang_partner_duration_seconds_max Partner API duration
+# TYPE hang_partner_duration_seconds_max gauge
+hang_partner_duration_seconds_max{application="hang-anatomy-demo",dependency="partner-api",mode="normal",outcome="success"} 0.235810541
+# HELP hang_partner_inflight In-flight partner HTTP calls
+# TYPE hang_partner_inflight gauge
+hang_partner_inflight{application="hang-anatomy-demo",dependency="partner-api"} 0.0
+# HELP hikaricp_connections Total connections
+# TYPE hikaricp_connections gauge
+hikaricp_connections{application="hang-anatomy-demo",pool="hang-hikari"} 6.0
+# HELP hikaricp_connections_acquire_seconds Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds summary
+hikaricp_connections_acquire_seconds_count{application="hang-anatomy-demo",pool="hang-hikari"} 1100
+hikaricp_connections_acquire_seconds_sum{application="hang-anatomy-demo",pool="hang-hikari"} 31.906608745
+# HELP hikaricp_connections_acquire_seconds_max Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds_max gauge
+hikaricp_connections_acquire_seconds_max{application="hang-anatomy-demo",pool="hang-hikari"} 0.326757167
+# HELP hikaricp_connections_active Active connections
+# TYPE hikaricp_connections_active gauge
+hikaricp_connections_active{application="hang-anatomy-demo",pool="hang-hikari"} 3.0
+# HELP hikaricp_connections_creation_seconds Connection creation time
+# TYPE hikaricp_connections_creation_seconds summary
+hikaricp_connections_creation_seconds_count{application="hang-anatomy-demo",pool="hang-hikari"} 3
+hikaricp_connections_creation_seconds_sum{application="hang-anatomy-demo",pool="hang-hikari"} 0.11
+# HELP hikaricp_connections_creation_seconds_max Connection creation time
+# TYPE hikaricp_connections_creation_seconds_max gauge
+hikaricp_connections_creation_seconds_max{application="hang-anatomy-demo",pool="hang-hikari"} 0.063
+# HELP hikaricp_connections_idle Idle connections
+# TYPE hikaricp_connections_idle gauge
+hikaricp_connections_idle{application="hang-anatomy-demo",pool="hang-hikari"} 3.0
+# HELP hikaricp_connections_max Max connections
+# TYPE hikaricp_connections_max gauge
+hikaricp_connections_max{application="hang-anatomy-demo",pool="hang-hikari"} 6.0
+# HELP hikaricp_connections_min Min connections
+# TYPE hikaricp_connections_min gauge
+hikaricp_connections_min{application="hang-anatomy-demo",pool="hang-hikari"} 2.0
+# HELP hikaricp_connections_pending Pending threads
+# TYPE hikaricp_connections_pending gauge
+hikaricp_connections_pending{application="hang-anatomy-demo",pool="hang-hikari"} 0.0
+# HELP hikaricp_connections_timeout_total Connection timeout total count
+# TYPE hikaricp_connections_timeout_total counter
+hikaricp_connections_timeout_total{application="hang-anatomy-demo",pool="hang-hikari"} 0.0
+# HELP hikaricp_connections_usage_seconds Connection usage time
+# TYPE hikaricp_connections_usage_seconds summary
+hikaricp_connections_usage_seconds_count{application="hang-anatomy-demo",pool="hang-hikari"} 1099
+hikaricp_connections_usage_seconds_sum{application="hang-anatomy-demo",pool="hang-hikari"} 44.55
+# HELP hikaricp_connections_usage_seconds_max Connection usage time
+# TYPE hikaricp_connections_usage_seconds_max gauge
+hikaricp_connections_usage_seconds_max{application="hang-anatomy-demo",pool="hang-hikari"} 0.263
+# HELP http_server_requests_active_seconds  
+# TYPE http_server_requests_active_seconds histogram
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="120.0"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="137.438953471"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="160.345445716"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="183.251937961"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="206.158430206"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="229.064922451"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="251.971414696"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="274.877906944"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="366.503875925"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="458.129844906"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="549.755813887"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="641.381782868"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="733.007751849"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="824.63372083"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="916.259689811"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1007.885658792"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1099.511627776"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1466.015503701"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1832.519379626"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2199.023255551"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2565.527131476"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2932.031007401"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="3298.534883326"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="3665.038759251"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="4031.542635176"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="4398.046511104"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="5864.062014805"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="7200.0"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="+Inf"} 5
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="120.0"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="137.438953471"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="160.345445716"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="183.251937961"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="206.158430206"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="229.064922451"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="251.971414696"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="274.877906944"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="366.503875925"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="458.129844906"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="549.755813887"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="641.381782868"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="733.007751849"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="824.63372083"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="916.259689811"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1007.885658792"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1099.511627776"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1466.015503701"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1832.519379626"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2199.023255551"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2565.527131476"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2932.031007401"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="3298.534883326"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="3665.038759251"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="4031.542635176"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="4398.046511104"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="5864.062014805"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="7200.0"} 0
+http_server_requests_active_seconds_bucket{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN",le="+Inf"} 0
+# HELP http_server_requests_active_seconds_gcount  
+# TYPE http_server_requests_active_seconds_gcount gauge
+http_server_requests_active_seconds_gcount{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 5
+http_server_requests_active_seconds_gcount{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0
+# HELP http_server_requests_active_seconds_gsum  
+# TYPE http_server_requests_active_seconds_gsum gauge
+http_server_requests_active_seconds_gsum{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.012115165
+http_server_requests_active_seconds_gsum{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+# HELP http_server_requests_active_seconds_max  
+# TYPE http_server_requests_active_seconds_max gauge
+http_server_requests_active_seconds_max{application="hang-anatomy-demo",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.005485167
+http_server_requests_active_seconds_max{application="hang-anatomy-demo",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+# HELP http_server_requests_seconds  
+# TYPE http_server_requests_seconds histogram
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.001"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.001048576"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.001398101"} 5
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.001747626"} 21
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.002097151"} 32
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.002446676"} 35
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.002796201"} 35
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.003145726"} 41
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.003495251"} 42
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.003844776"} 43
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.004194304"} 47
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.005592405"} 52
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.006990506"} 53
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.008388607"} 53
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.009786708"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.011184809"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.01258291"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.013981011"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.015379112"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.016777216"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.022369621"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.027962026"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.033554431"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.039146836"} 54
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.044739241"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.050331646"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.055924051"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.061516456"} 59
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.067108864"} 59
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.089478485"} 59
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.111848106"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.134217727"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.156587348"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.178956969"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.20132659"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.223696211"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.246065832"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.268435456"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.357913941"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.447392426"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.536870911"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.626349396"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.715827881"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.805306366"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.894784851"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="0.984263336"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="1.073741824"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="1.431655765"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="1.789569706"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="2.147483647"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="2.505397588"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="2.863311529"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="3.22122547"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="3.579139411"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="3.937053352"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="4.294967296"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="5.726623061"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="7.158278826"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="8.589934591"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="10.021590356"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="11.453246121"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="12.884901886"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="14.316557651"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="15.748213416"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="17.179869184"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="22.906492245"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="28.633115306"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="30.0"} 76
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health",le="+Inf"} 76
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health"} 76
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health"} 2.477001173
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.001"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.001048576"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.001398101"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.001747626"} 2
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.002097151"} 6
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.002446676"} 9
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.002796201"} 13
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.003145726"} 15
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.003495251"} 18
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.003844776"} 20
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.004194304"} 22
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.005592405"} 26
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.006990506"} 28
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.008388607"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.009786708"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.011184809"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.01258291"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.013981011"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.015379112"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.016777216"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.022369621"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.027962026"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.033554431"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.039146836"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.044739241"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.050331646"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.055924051"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.061516456"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.067108864"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.089478485"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.111848106"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.134217727"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.156587348"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.178956969"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.20132659"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.223696211"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.246065832"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.268435456"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.357913941"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.447392426"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.536870911"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.626349396"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.715827881"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.805306366"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.894784851"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="0.984263336"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="1.073741824"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="1.431655765"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="1.789569706"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="2.147483647"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="2.505397588"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="2.863311529"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="3.22122547"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="3.579139411"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="3.937053352"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="4.294967296"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="5.726623061"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="7.158278826"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="8.589934591"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="10.021590356"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="11.453246121"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="12.884901886"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="14.316557651"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="15.748213416"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="17.179869184"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="22.906492245"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="28.633115306"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="30.0"} 29
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**",le="+Inf"} 29
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**"} 29
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**"} 0.0980505
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001048576"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001398101"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001747626"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.002097151"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.002446676"} 9
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.002796201"} 15
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.003145726"} 23
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.003495251"} 30
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.003844776"} 33
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.004194304"} 38
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.005592405"} 51
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.006990506"} 64
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.008388607"} 70
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.009786708"} 75
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.011184809"} 79
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.01258291"} 80
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.013981011"} 80
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.015379112"} 81
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.016777216"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.022369621"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.027962026"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.033554431"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.039146836"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.044739241"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.050331646"} 82
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.055924051"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.061516456"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.067108864"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.089478485"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.111848106"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.134217727"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.156587348"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.178956969"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.20132659"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.223696211"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.246065832"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.268435456"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.357913941"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.447392426"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.536870911"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.626349396"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.715827881"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.805306366"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.894784851"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.984263336"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="1.073741824"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="1.431655765"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="1.789569706"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="2.147483647"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="2.505397588"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="2.863311529"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="3.22122547"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="3.579139411"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="3.937053352"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="4.294967296"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="5.726623061"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="7.158278826"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="8.589934591"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="10.021590356"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="11.453246121"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="12.884901886"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="14.316557651"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="15.748213416"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="17.179869184"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="22.906492245"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="28.633115306"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="30.0"} 83
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="+Inf"} 83
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 83
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.486076546
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.001"} 14
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.001048576"} 14
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.001398101"} 24
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.001747626"} 28
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.002097151"} 32
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.002446676"} 33
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.002796201"} 34
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.003145726"} 38
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.003495251"} 40
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.003844776"} 42
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.004194304"} 45
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.005592405"} 49
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.006990506"} 53
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.008388607"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.009786708"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.011184809"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.01258291"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.013981011"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.015379112"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.016777216"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.022369621"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.027962026"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.033554431"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.039146836"} 55
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.044739241"} 61
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.050331646"} 63
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.055924051"} 64
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.061516456"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.067108864"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.089478485"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.111848106"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.134217727"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.156587348"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.178956969"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.20132659"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.223696211"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.246065832"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.268435456"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.357913941"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.447392426"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.536870911"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.626349396"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.715827881"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.805306366"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.894784851"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="0.984263336"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="1.073741824"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="1.431655765"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="1.789569706"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="2.147483647"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="2.505397588"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="2.863311529"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="3.22122547"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="3.579139411"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="3.937053352"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="4.294967296"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="5.726623061"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="7.158278826"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="8.589934591"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="10.021590356"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="11.453246121"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="12.884901886"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="14.316557651"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="15.748213416"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="17.179869184"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="22.906492245"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="28.633115306"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="30.0"} 66
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status",le="+Inf"} 66
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status"} 66
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status"} 0.657676623
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.001"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.001048576"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.001398101"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.001747626"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.002097151"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.002446676"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.002796201"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.003145726"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.003495251"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.003844776"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.004194304"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.005592405"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.006990506"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.008388607"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.009786708"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.011184809"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.01258291"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.013981011"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.015379112"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.016777216"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.022369621"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.027962026"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.033554431"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.039146836"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.044739241"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.050331646"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.055924051"} 152
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.061516456"} 286
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.067108864"} 317
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.089478485"} 380
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.111848106"} 569
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.134217727"} 685
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.156587348"} 735
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.178956969"} 778
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.20132659"} 780
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.223696211"} 780
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.246065832"} 780
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.268435456"} 782
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.357913941"} 790
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.447392426"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.536870911"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.626349396"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.715827881"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.805306366"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.894784851"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="0.984263336"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="1.073741824"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="1.431655765"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="1.789569706"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="2.147483647"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="2.505397588"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="2.863311529"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="3.22122547"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="3.579139411"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="3.937053352"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="4.294967296"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="5.726623061"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="7.158278826"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="8.589934591"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="10.021590356"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="11.453246121"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="12.884901886"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="14.316557651"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="15.748213416"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="17.179869184"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="22.906492245"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="28.633115306"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="30.0"} 792
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}",le="+Inf"} 792
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}"} 792
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}"} 74.610445125
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.001"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.001048576"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.001398101"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.001747626"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.002097151"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.002446676"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.002796201"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.003145726"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.003495251"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.003844776"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.004194304"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.005592405"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.006990506"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.008388607"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.009786708"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.011184809"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.01258291"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.013981011"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.015379112"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.016777216"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.022369621"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.027962026"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.033554431"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.039146836"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.044739241"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.050331646"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.055924051"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.061516456"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.067108864"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.089478485"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.111848106"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.134217727"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.156587348"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.178956969"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.20132659"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.223696211"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.246065832"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.268435456"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.357913941"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.447392426"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.536870911"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.626349396"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.715827881"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.805306366"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.894784851"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="0.984263336"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="1.073741824"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="1.431655765"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="1.789569706"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="2.147483647"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="2.505397588"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="2.863311529"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="3.22122547"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="3.579139411"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="3.937053352"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="4.294967296"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="5.726623061"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="7.158278826"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="8.589934591"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="10.021590356"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="11.453246121"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="12.884901886"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="14.316557651"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="15.748213416"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="17.179869184"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="22.906492245"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="28.633115306"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="30.0"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config",le="+Inf"} 1
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config"} 1
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config"} 0.002049208
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.001"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.001048576"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.001398101"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.001747626"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.002097151"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.002446676"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.002796201"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.003145726"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.003495251"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.003844776"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.004194304"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.005592405"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.006990506"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.008388607"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.009786708"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.011184809"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.01258291"} 0
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.013981011"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.015379112"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.016777216"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.022369621"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.027962026"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.033554431"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.039146836"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.044739241"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.050331646"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.055924051"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.061516456"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.067108864"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.089478485"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.111848106"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.134217727"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.156587348"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.178956969"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.20132659"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.223696211"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.246065832"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.268435456"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.357913941"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.447392426"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.536870911"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.626349396"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.715827881"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.805306366"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.894784851"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="0.984263336"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="1.073741824"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="1.431655765"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="1.789569706"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="2.147483647"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="2.505397588"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="2.863311529"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="3.22122547"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="3.579139411"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="3.937053352"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="4.294967296"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="5.726623061"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="7.158278826"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="8.589934591"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="10.021590356"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="11.453246121"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="12.884901886"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="14.316557651"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="15.748213416"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="17.179869184"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="22.906492245"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="28.633115306"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="30.0"} 1
+http_server_requests_seconds_bucket{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}",le="+Inf"} 1
+http_server_requests_seconds_count{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}"} 1
+http_server_requests_seconds_sum{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}"} 0.013853416
+# HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health"} 0.265554125
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health/**"} 0.007519625
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.052000875
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/admin/status"} 0.060827958
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/dashboard/{id}"} 0.386537208
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/v1/demo/config"} 0.002049208
+http_server_requests_seconds_max{application="hang-anatomy-demo",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/api/v1/demo/mode/{mode}"} 0.013853416
+# HELP jdbc_connections_active Current number of active connections that have been allocated from the data source.
+# TYPE jdbc_connections_active gauge
+jdbc_connections_active{application="hang-anatomy-demo",name="dataSource"} 3.0
+# HELP jdbc_connections_idle Number of established but idle connections.
+# TYPE jdbc_connections_idle gauge
+jdbc_connections_idle{application="hang-anatomy-demo",name="dataSource"} 3.0
+# HELP jdbc_connections_max Maximum number of active connections that can be allocated at the same time.
+# TYPE jdbc_connections_max gauge
+jdbc_connections_max{application="hang-anatomy-demo",name="dataSource"} 6.0
+# HELP jdbc_connections_min Minimum number of idle connections in the pool.
+# TYPE jdbc_connections_min gauge
+jdbc_connections_min{application="hang-anatomy-demo",name="dataSource"} 2.0
+# HELP jvm_info JVM version info
+# TYPE jvm_info gauge
+jvm_info{application="hang-anatomy-demo",runtime="OpenJDK Runtime Environment",vendor="Eclipse Adoptium",version="25.0.3+9-LTS"} 1
+# HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count_buffers gauge
+jvm_buffer_count_buffers{application="hang-anatomy-demo",id="direct"} 1.0
+jvm_buffer_count_buffers{application="hang-anatomy-demo",id="mapped"} 0.0
+jvm_buffer_count_buffers{application="hang-anatomy-demo",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{application="hang-anatomy-demo",id="direct"} 10240.0
+jvm_buffer_memory_used_bytes{application="hang-anatomy-demo",id="mapped"} 0.0
+jvm_buffer_memory_used_bytes{application="hang-anatomy-demo",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{application="hang-anatomy-demo",id="direct"} 10240.0
+jvm_buffer_total_capacity_bytes{application="hang-anatomy-demo",id="mapped"} 0.0
+jvm_buffer_total_capacity_bytes{application="hang-anatomy-demo",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_classes gauge
+jvm_classes_loaded_classes{application="hang-anatomy-demo"} 13306.0
+# HELP jvm_classes_loaded_count_classes_total The number of classes loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_count_classes_total counter
+jvm_classes_loaded_count_classes_total{application="hang-anatomy-demo"} 13306.0
+# HELP jvm_classes_unloaded_classes_total The number of classes unloaded in the Java virtual machine
+# TYPE jvm_classes_unloaded_classes_total counter
+jvm_classes_unloaded_classes_total{application="hang-anatomy-demo"} 0.0
+# HELP jvm_compilation_time_ms_total The approximate accumulated elapsed time spent in compilation
+# TYPE jvm_compilation_time_ms_total counter
+jvm_compilation_time_ms_total{application="hang-anatomy-demo",compiler="HotSpot 64-Bit Tiered Compilers"} 7464.0
+# HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes{application="hang-anatomy-demo"} 2.9408464E7
+# HELP jvm_gc_max_data_size_bytes Max size of long-lived heap memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes{application="hang-anatomy-demo"} 7.52222208E8
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total{application="hang-anatomy-demo"} 4.43245168E8
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total{application="hang-anatomy-demo"} 3177376.0
+# HELP jvm_gc_overhead An approximation of the percent of CPU time used by GC activities over the last lookback period or since monitoring began, whichever is shorter, in the range [0..1]
+# TYPE jvm_gc_overhead gauge
+jvm_gc_overhead{application="hang-anatomy-demo"} 0.0013073142883887952
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of major GC",application="hang-anatomy-demo",cause="Metadata GC Threshold",gc="MarkSweepCompact"} 1
+jvm_gc_pause_seconds_sum{action="end of major GC",application="hang-anatomy-demo",cause="Metadata GC Threshold",gc="MarkSweepCompact"} 0.048
+jvm_gc_pause_seconds_count{action="end of minor GC",application="hang-anatomy-demo",cause="Allocation Failure",gc="Copy"} 24
+jvm_gc_pause_seconds_sum{action="end of minor GC",application="hang-anatomy-demo",cause="Allocation Failure",gc="Copy"} 0.064
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of major GC",application="hang-anatomy-demo",cause="Metadata GC Threshold",gc="MarkSweepCompact"} 0.048
+jvm_gc_pause_seconds_max{action="end of minor GC",application="hang-anatomy-demo",cause="Allocation Failure",gc="Copy"} 0.006
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="heap",id="Eden Space"} 1.9726336E7
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="heap",id="Survivor Space"} 2424832.0
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="heap",id="Tenured Gen"} 4.9016832E7
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'non-nmethods'"} 2555904.0
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 3866624.0
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.1102592E7
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="nonheap",id="Compressed Class Space"} 8781824.0
+jvm_memory_committed_bytes{application="hang-anatomy-demo",area="nonheap",id="Metaspace"} 6.6387968E7
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="heap",id="Eden Space"} 3.00941312E8
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="heap",id="Survivor Space"} 3.7552128E7
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="heap",id="Tenured Gen"} 7.52222208E8
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'non-nmethods'"} 5828608.0
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.22916864E8
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.22916864E8
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="nonheap",id="Compressed Class Space"} 1.073741824E9
+jvm_memory_max_bytes{application="hang-anatomy-demo",area="nonheap",id="Metaspace"} -1.0
+# HELP jvm_memory_usage_after_gc The percentage of long-lived heap pool used after the last GC event, in the range [0..1]
+# TYPE jvm_memory_usage_after_gc gauge
+jvm_memory_usage_after_gc{application="hang-anatomy-demo",area="heap",pool="long-lived"} 0.04071205512719986
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="heap",id="Eden Space"} 1.5136696E7
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="heap",id="Survivor Space"} 506176.0
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="heap",id="Tenured Gen"} 3.0624512E7
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'non-nmethods'"} 1416512.0
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 3812480.0
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.1033024E7
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="nonheap",id="Compressed Class Space"} 8394752.0
+jvm_memory_used_bytes{application="hang-anatomy-demo",area="nonheap",id="Metaspace"} 6.5488896E7
+# HELP jvm_threads_daemon_threads The current number of live daemon threads
+# TYPE jvm_threads_daemon_threads gauge
+jvm_threads_daemon_threads{application="hang-anatomy-demo"} 28.0
+# HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live_threads gauge
+jvm_threads_live_threads{application="hang-anatomy-demo"} 32.0
+# HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak_threads gauge
+jvm_threads_peak_threads{application="hang-anatomy-demo"} 32.0
+# HELP jvm_threads_started_threads_total The total number of application threads started in the JVM
+# TYPE jvm_threads_started_threads_total counter
+jvm_threads_started_threads_total{application="hang-anatomy-demo"} 36.0
+# HELP jvm_threads_states_threads The current number of threads
+# TYPE jvm_threads_states_threads gauge
+jvm_threads_states_threads{application="hang-anatomy-demo",state="blocked"} 0.0
+jvm_threads_states_threads{application="hang-anatomy-demo",state="new"} 0.0
+jvm_threads_states_threads{application="hang-anatomy-demo",state="runnable"} 9.0
+jvm_threads_states_threads{application="hang-anatomy-demo",state="terminated"} 0.0
+jvm_threads_states_threads{application="hang-anatomy-demo",state="timed-waiting"} 21.0
+jvm_threads_states_threads{application="hang-anatomy-demo",state="waiting"} 2.0
+# HELP logback_events_total Number of log events that were enabled by the effective log level
+# TYPE logback_events_total counter
+logback_events_total{application="hang-anatomy-demo",level="debug"} 0.0
+logback_events_total{application="hang-anatomy-demo",level="error"} 0.0
+logback_events_total{application="hang-anatomy-demo",level="info"} 866.0
+logback_events_total{application="hang-anatomy-demo",level="trace"} 0.0
+logback_events_total{application="hang-anatomy-demo",level="warn"} 792.0
+# HELP process_cpu_time_ns_total The "cpu time" used by the Java Virtual Machine process
+# TYPE process_cpu_time_ns_total counter
+process_cpu_time_ns_total{application="hang-anatomy-demo"} 1.343E10
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage{application="hang-anatomy-demo"} 0.041666666666666664
+# HELP process_files_max_files The maximum file descriptor count
+# TYPE process_files_max_files gauge
+process_files_max_files{application="hang-anatomy-demo"} 1048576.0
+# HELP process_files_open_files The open file descriptor count
+# TYPE process_files_open_files gauge
+process_files_open_files{application="hang-anatomy-demo"} 28.0
+# HELP process_start_time_seconds Start time of the process since unix epoch.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds{application="hang-anatomy-demo"} 1.793305244141E9
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds{application="hang-anatomy-demo"} 90.585
+# HELP resilience4j_bulkhead_available_concurrent_calls The number of available permissions
+# TYPE resilience4j_bulkhead_available_concurrent_calls gauge
+resilience4j_bulkhead_available_concurrent_calls{application="hang-anatomy-demo",name="dashboardDb"} 10.0
+resilience4j_bulkhead_available_concurrent_calls{application="hang-anatomy-demo",name="partnerApi"} 8.0
+# HELP resilience4j_bulkhead_max_allowed_concurrent_calls The maximum number of available permissions
+# TYPE resilience4j_bulkhead_max_allowed_concurrent_calls gauge
+resilience4j_bulkhead_max_allowed_concurrent_calls{application="hang-anatomy-demo",name="dashboardDb"} 10.0
+resilience4j_bulkhead_max_allowed_concurrent_calls{application="hang-anatomy-demo",name="partnerApi"} 8.0
+# HELP resilience4j_circuitbreaker_buffered_calls The number of buffered successful calls stored in the ring buffer
+# TYPE resilience4j_circuitbreaker_buffered_calls gauge
+resilience4j_circuitbreaker_buffered_calls{application="hang-anatomy-demo",kind="failed",name="partnerApi"} 0.0
+resilience4j_circuitbreaker_buffered_calls{application="hang-anatomy-demo",kind="successful",name="partnerApi"} 0.0
+# HELP resilience4j_circuitbreaker_calls_seconds Total number of successful calls
+# TYPE resilience4j_circuitbreaker_calls_seconds summary
+resilience4j_circuitbreaker_calls_seconds_count{application="hang-anatomy-demo",kind="failed",name="partnerApi"} 0
+resilience4j_circuitbreaker_calls_seconds_sum{application="hang-anatomy-demo",kind="failed",name="partnerApi"} 0.0
+resilience4j_circuitbreaker_calls_seconds_count{application="hang-anatomy-demo",kind="ignored",name="partnerApi"} 0
+resilience4j_circuitbreaker_calls_seconds_sum{application="hang-anatomy-demo",kind="ignored",name="partnerApi"} 0.0
+resilience4j_circuitbreaker_calls_seconds_count{application="hang-anatomy-demo",kind="successful",name="partnerApi"} 0
+resilience4j_circuitbreaker_calls_seconds_sum{application="hang-anatomy-demo",kind="successful",name="partnerApi"} 0.0
+# HELP resilience4j_circuitbreaker_calls_seconds_max Total number of successful calls
+# TYPE resilience4j_circuitbreaker_calls_seconds_max gauge
+resilience4j_circuitbreaker_calls_seconds_max{application="hang-anatomy-demo",kind="failed",name="partnerApi"} 0.0
+resilience4j_circuitbreaker_calls_seconds_max{application="hang-anatomy-demo",kind="ignored",name="partnerApi"} 0.0
+resilience4j_circuitbreaker_calls_seconds_max{application="hang-anatomy-demo",kind="successful",name="partnerApi"} 0.0
+# HELP resilience4j_circuitbreaker_failure_rate The failure rate of the circuit breaker
+# TYPE resilience4j_circuitbreaker_failure_rate gauge
+resilience4j_circuitbreaker_failure_rate{application="hang-anatomy-demo",name="partnerApi"} -1.0
+# HELP resilience4j_circuitbreaker_not_permitted_calls_total Total number of not permitted calls
+# TYPE resilience4j_circuitbreaker_not_permitted_calls_total counter
+resilience4j_circuitbreaker_not_permitted_calls_total{application="hang-anatomy-demo",kind="not_permitted",name="partnerApi"} 0.0
+# HELP resilience4j_circuitbreaker_slow_call_rate The slow call of the circuit breaker
+# TYPE resilience4j_circuitbreaker_slow_call_rate gauge
+resilience4j_circuitbreaker_slow_call_rate{application="hang-anatomy-demo",name="partnerApi"} -1.0
+# HELP resilience4j_circuitbreaker_slow_calls The number of slow successful which were slower than a certain threshold
+# TYPE resilience4j_circuitbreaker_slow_calls gauge
+resilience4j_circuitbreaker_slow_calls{application="hang-anatomy-demo",kind="failed",name="partnerApi"} 0.0
+resilience4j_circuitbreaker_slow_calls{application="hang-anatomy-demo",kind="successful",name="partnerApi"} 0.0
+# HELP resilience4j_circuitbreaker_state The states of the circuit breaker
+# TYPE resilience4j_circuitbreaker_state gauge
+resilience4j_circuitbreaker_state{application="hang-anatomy-demo",name="partnerApi",state="closed"} 1.0
+resilience4j_circuitbreaker_state{application="hang-anatomy-demo",name="partnerApi",state="disabled"} 0.0
+resilience4j_circuitbreaker_state{application="hang-anatomy-demo",name="partnerApi",state="forced_open"} 0.0
+resilience4j_circuitbreaker_state{application="hang-anatomy-demo",name="partnerApi",state="half_open"} 0.0
+resilience4j_circuitbreaker_state{application="hang-anatomy-demo",name="partnerApi",state="metrics_only"} 0.0
+resilience4j_circuitbreaker_state{application="hang-anatomy-demo",name="partnerApi",state="open"} 0.0
+# HELP resilience4j_ratelimiter_available_permissions The number of available permissions
+# TYPE resilience4j_ratelimiter_available_permissions gauge
+resilience4j_ratelimiter_available_permissions{application="hang-anatomy-demo",name="heavyEndpoint"} 30.0
+# HELP resilience4j_ratelimiter_waiting_threads The number of waiting threads
+# TYPE resilience4j_ratelimiter_waiting_threads gauge
+resilience4j_ratelimiter_waiting_threads{application="hang-anatomy-demo",name="heavyEndpoint"} 0.0
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count{application="hang-anatomy-demo"} 2.0
+# HELP system_cpu_usage The "recent cpu usage" of the system the application is running in
+# TYPE system_cpu_usage gauge
+system_cpu_usage{application="hang-anatomy-demo"} 0.0445025
+# HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
+# TYPE system_load_average_1m gauge
+system_load_average_1m{application="hang-anatomy-demo"} 3.96337890625
+# HELP tomcat_cache_access_total  
+# TYPE tomcat_cache_access_total counter
+tomcat_cache_access_total{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_cache_hit_total  
+# TYPE tomcat_cache_hit_total counter
+tomcat_cache_hit_total{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_connections_config_max_connections  
+# TYPE tomcat_connections_config_max_connections gauge
+tomcat_connections_config_max_connections{application="hang-anatomy-demo",name="http-nio-8080"} 8192.0
+# HELP tomcat_connections_current_connections  
+# TYPE tomcat_connections_current_connections gauge
+tomcat_connections_current_connections{application="hang-anatomy-demo",name="http-nio-8080"} 8.0
+# HELP tomcat_connections_keepalive_current_connections  
+# TYPE tomcat_connections_keepalive_current_connections gauge
+tomcat_connections_keepalive_current_connections{application="hang-anatomy-demo",name="http-nio-8080"} 7.0
+# HELP tomcat_global_error_total  
+# TYPE tomcat_global_error_total counter
+tomcat_global_error_total{application="hang-anatomy-demo",name="http-nio-8080"} 0.0
+# HELP tomcat_global_received_bytes_total  
+# TYPE tomcat_global_received_bytes_total counter
+tomcat_global_received_bytes_total{application="hang-anatomy-demo",name="http-nio-8080"} 0.0
+# HELP tomcat_global_request_max_seconds  
+# TYPE tomcat_global_request_max_seconds gauge
+tomcat_global_request_max_seconds{application="hang-anatomy-demo",name="http-nio-8080"} 0.387
+# HELP tomcat_global_request_seconds  
+# TYPE tomcat_global_request_seconds summary
+tomcat_global_request_seconds_count{application="hang-anatomy-demo",name="http-nio-8080"} 1047
+tomcat_global_request_seconds_sum{application="hang-anatomy-demo",name="http-nio-8080"} 78.195
+# HELP tomcat_global_sent_bytes_total  
+# TYPE tomcat_global_sent_bytes_total counter
+tomcat_global_sent_bytes_total{application="hang-anatomy-demo",name="http-nio-8080"} 1.2759959E7
+# HELP tomcat_servlet_error_total  
+# TYPE tomcat_servlet_error_total counter
+tomcat_servlet_error_total{application="hang-anatomy-demo",name="dispatcherServlet"} 0.0
+# HELP tomcat_servlet_request_max_seconds  
+# TYPE tomcat_servlet_request_max_seconds gauge
+tomcat_servlet_request_max_seconds{application="hang-anatomy-demo",name="dispatcherServlet"} 0.387
+# HELP tomcat_servlet_request_seconds  
+# TYPE tomcat_servlet_request_seconds summary
+tomcat_servlet_request_seconds_count{application="hang-anatomy-demo",name="dispatcherServlet"} 1050
+tomcat_servlet_request_seconds_sum{application="hang-anatomy-demo",name="dispatcherServlet"} 78.45
+# HELP tomcat_sessions_active_current_sessions  
+# TYPE tomcat_sessions_active_current_sessions gauge
+tomcat_sessions_active_current_sessions{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_sessions_active_max_sessions  
+# TYPE tomcat_sessions_active_max_sessions gauge
+tomcat_sessions_active_max_sessions{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_sessions_alive_max_seconds  
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_sessions_created_sessions_total  
+# TYPE tomcat_sessions_created_sessions_total counter
+tomcat_sessions_created_sessions_total{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_sessions_expired_sessions_total  
+# TYPE tomcat_sessions_expired_sessions_total counter
+tomcat_sessions_expired_sessions_total{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_sessions_rejected_sessions_total  
+# TYPE tomcat_sessions_rejected_sessions_total counter
+tomcat_sessions_rejected_sessions_total{application="hang-anatomy-demo"} 0.0
+# HELP tomcat_threads_busy_threads  
+# TYPE tomcat_threads_busy_threads gauge
+tomcat_threads_busy_threads{application="hang-anatomy-demo",name="http-nio-8080"} 6.0
+# HELP tomcat_threads_config_max_threads  
+# TYPE tomcat_threads_config_max_threads gauge
+tomcat_threads_config_max_threads{application="hang-anatomy-demo",name="http-nio-8080"} 16.0
+# HELP tomcat_threads_current_threads  
+# TYPE tomcat_threads_current_threads gauge
+tomcat_threads_current_threads{application="hang-anatomy-demo",name="http-nio-8080"} 16.0

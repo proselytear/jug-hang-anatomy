@@ -1,0 +1,108 @@
+docker compose up -d --build
+#1 [internal] load local bake definitions
+#1 reading from stdin 537B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 790B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:25-jdk
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 94B done
+#4 DONE 0.0s
+
+#5 [build 1/6] FROM docker.io/library/eclipse-temurin:25-jdk@sha256:edb3aa0f621796d8f5f9d602c7611ffdf015cd89e6ddda1894d85a3a99d170a8
+#5 resolve docker.io/library/eclipse-temurin:25-jdk@sha256:edb3aa0f621796d8f5f9d602c7611ffdf015cd89e6ddda1894d85a3a99d170a8 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 185.67kB 0.0s done
+#6 DONE 0.0s
+
+#7 [build 3/6] COPY gradlew gradlew.bat settings.gradle.kts build.gradle.kts gradle.properties ./
+#7 CACHED
+
+#8 [build 2/6] WORKDIR /workspace
+#8 CACHED
+
+#9 [build 4/6] COPY gradle gradle
+#9 CACHED
+
+#10 [build 5/6] COPY src src
+#10 DONE 0.1s
+
+#11 [build 6/6] RUN chmod +x gradlew && ./gradlew --no-daemon bootJar
+#11 0.243 Downloading https://services.gradle.org/distributions/gradle-9.1.0-bin.zip
+#11 3.179 ............10%.............20%.............30%.............40%.............50%............60%.............70%.............80%.............90%.............100%
+#11 118.4 WARNING: A restricted method in java.lang.System has been called
+#11 118.4 WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/root/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0/lib/native-platform-0.22-milestone-28.jar)
+#11 118.4 WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+#11 118.4 WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+#11 118.4 
+#11 118.5 
+#11 118.5 Welcome to Gradle 9.1.0!
+#11 118.5 
+#11 118.5 Here are the highlights of this release:
+#11 118.5  - Full Java 25 support
+#11 118.5  - Native task graph visualization
+#11 118.5  - Enhanced console output
+#11 118.5 
+#11 118.5 For more details see https://docs.gradle.org/9.1.0/release-notes.html
+#11 118.5 
+#11 118.5 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#11 119.0 Daemon will be stopped at the end of the build 
+#11 177.4 > Task :bootBuildInfo
+#11 206.6 
+#11 206.6 Note: /workspace/src/main/java/net/proselyte/demo/hanganatomy/client/PartnerClient.java uses or overrides a deprecated API.
+#11 206.6 Note: Recompile with -Xlint:deprecation for details.
+#11 206.6 > Task :compileJava
+#11 207.6 
+#11 207.6 > Task :processResources
+#11 207.6 > Task :classes
+#11 207.6 > Task :resolveMainClassName
+#11 217.8 > Task :bootJar
+#11 217.8 
+#11 217.8 [Incubating] Problems report is available at: file:///workspace/build/reports/problems/problems-report.html
+#11 217.8 
+#11 217.8 BUILD SUCCESSFUL in 3m 37s
+#11 217.8 5 actionable tasks: 5 executed
+#11 217.8 Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.1.0/userguide/configuration_cache_enabling.html
+#11 DONE 217.9s
+
+#12 [stage-1 2/6] RUN apt-get update     && apt-get install -y --no-install-recommends curl     && rm -rf /var/lib/apt/lists/*     && useradd --system --uid 1001 --create-home appuser
+#12 CACHED
+
+#13 [stage-1 3/6] WORKDIR /app
+#13 CACHED
+
+#14 [stage-1 4/6] COPY --from=build /workspace/build/libs/hang-anatomy-demo-0.1.0-SNAPSHOT.jar /app/app.jar
+#14 DONE 0.1s
+
+#15 [stage-1 5/6] COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+#15 DONE 0.0s
+
+#16 [stage-1 6/6] RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+#16 DONE 0.1s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 0.7s done
+#17 exporting manifest sha256:5aa8e5cfe0c4636e5794843a841b10fceeb883a3281ca11b68c610390809f718
+#17 exporting manifest sha256:5aa8e5cfe0c4636e5794843a841b10fceeb883a3281ca11b68c610390809f718 done
+#17 exporting config sha256:551b607835bd26c353228d65e829ea9f2aa547f35dff93bda21ef50c892a2ade done
+#17 exporting attestation manifest sha256:eacb853f8e8f189734f21304242c6368cb00d8622a394b555731dff52df14f32 done
+#17 exporting manifest list sha256:9013b0d88fdb81401789dc6d5a9c4dffeca122fea7df3327a8aeaa99fd112e8d done
+#17 naming to docker.io/library/hang-v5-repo-20261029-app:latest done
+#17 unpacking to docker.io/library/hang-v5-repo-20261029-app:latest 0.1s done
+#17 DONE 0.9s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ hang-v5-repo-20261029-app  Built
+ Network hang-v5-repo-20261029_default  Creating
+ Network hang-v5-repo-20261029_default  Error
+failed to create network hang-v5-repo-20261029_default: Error response from daemon: all predefined address pools have been fully subnetted
+make: *** [up] Error 1

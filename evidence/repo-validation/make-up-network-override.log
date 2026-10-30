@@ -1,0 +1,124 @@
+docker compose -f docker-compose.yml -f /private/tmp/hang-v5-network.override.yml up -d --build
+#1 [internal] load local bake definitions
+#1 reading from stdin 537B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 790B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:25-jdk
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 94B done
+#4 DONE 0.0s
+
+#5 [build 1/6] FROM docker.io/library/eclipse-temurin:25-jdk@sha256:edb3aa0f621796d8f5f9d602c7611ffdf015cd89e6ddda1894d85a3a99d170a8
+#5 resolve docker.io/library/eclipse-temurin:25-jdk@sha256:edb3aa0f621796d8f5f9d602c7611ffdf015cd89e6ddda1894d85a3a99d170a8 done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 8.37kB done
+#6 DONE 0.0s
+
+#7 [build 2/6] WORKDIR /workspace
+#7 CACHED
+
+#8 [build 3/6] COPY gradlew gradlew.bat settings.gradle.kts build.gradle.kts gradle.properties ./
+#8 CACHED
+
+#9 [stage-1 4/6] COPY --from=build /workspace/build/libs/hang-anatomy-demo-0.1.0-SNAPSHOT.jar /app/app.jar
+#9 CACHED
+
+#10 [stage-1 2/6] RUN apt-get update     && apt-get install -y --no-install-recommends curl     && rm -rf /var/lib/apt/lists/*     && useradd --system --uid 1001 --create-home appuser
+#10 CACHED
+
+#11 [stage-1 5/6] COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+#11 CACHED
+
+#12 [build 6/6] RUN chmod +x gradlew && ./gradlew --no-daemon bootJar
+#12 CACHED
+
+#13 [stage-1 3/6] WORKDIR /app
+#13 CACHED
+
+#14 [build 5/6] COPY src src
+#14 CACHED
+
+#15 [build 4/6] COPY gradle gradle
+#15 CACHED
+
+#16 [stage-1 6/6] RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+#16 CACHED
+
+#17 exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:5aa8e5cfe0c4636e5794843a841b10fceeb883a3281ca11b68c610390809f718 done
+#17 exporting config sha256:551b607835bd26c353228d65e829ea9f2aa547f35dff93bda21ef50c892a2ade done
+#17 exporting attestation manifest sha256:c49caba25b776101a4120f979ddf30ac10ec7d28ad8eccda1733cee4ae585588 done
+#17 exporting manifest list sha256:f00f3eaf0b517b26f8c4d92b7b28dcb156c9c572efa221126d5a2b90bfef6ec5 done
+#17 naming to docker.io/library/hang-v5-repo-20261029-app:latest done
+#17 unpacking to docker.io/library/hang-v5-repo-20261029-app:latest done
+#17 DONE 0.0s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ hang-v5-repo-20261029-app  Built
+ Network hang-v5-repo-20261029_default  Creating
+ Network hang-v5-repo-20261029_default  Created
+ Volume "hang-v5-repo-20261029_tempo-data"  Creating
+ Volume "hang-v5-repo-20261029_tempo-data"  Created
+ Volume "hang-v5-repo-20261029_app-logs"  Creating
+ Volume "hang-v5-repo-20261029_app-logs"  Created
+ Volume "hang-v5-repo-20261029_grafana-data"  Creating
+ Volume "hang-v5-repo-20261029_grafana-data"  Created
+ Volume "hang-v5-repo-20261029_postgres-data"  Creating
+ Volume "hang-v5-repo-20261029_postgres-data"  Created
+ Volume "hang-v5-repo-20261029_loki-data"  Creating
+ Volume "hang-v5-repo-20261029_loki-data"  Created
+ Volume "hang-v5-repo-20261029_mimir-data"  Creating
+ Volume "hang-v5-repo-20261029_mimir-data"  Created
+ Container hang-anatomy-wiremock  Creating
+ Container hang-anatomy-tempo  Creating
+ Container hang-anatomy-postgres  Creating
+ Container hang-anatomy-loki  Creating
+ Container hang-anatomy-mimir  Creating
+ Container hang-anatomy-wiremock  Created
+ Container hang-anatomy-loki  Created
+ Container hang-anatomy-mimir  Created
+ Container hang-anatomy-tempo  Created
+ Container hang-anatomy-grafana  Creating
+ Container hang-anatomy-alloy  Creating
+ postgres The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested 
+ Container hang-anatomy-postgres  Created
+ Container hang-anatomy-grafana  Created
+ Container hang-anatomy-alloy  Created
+ Container hang-anatomy-app  Creating
+ Container hang-anatomy-app  Created
+ Container hang-anatomy-postgres  Starting
+ Container hang-anatomy-wiremock  Starting
+ Container hang-anatomy-loki  Starting
+ Container hang-anatomy-mimir  Starting
+ Container hang-anatomy-tempo  Starting
+ Container hang-anatomy-wiremock  Started
+ Container hang-anatomy-tempo  Started
+ Container hang-anatomy-mimir  Started
+ Container hang-anatomy-postgres  Started
+ Container hang-anatomy-loki  Started
+ Container hang-anatomy-loki  Waiting
+ Container hang-anatomy-loki  Waiting
+ Container hang-anatomy-loki  Healthy
+ Container hang-anatomy-alloy  Starting
+ Container hang-anatomy-loki  Healthy
+ Container hang-anatomy-grafana  Starting
+ Container hang-anatomy-alloy  Started
+ Container hang-anatomy-wiremock  Waiting
+ Container hang-anatomy-postgres  Waiting
+ Container hang-anatomy-grafana  Started
+ Container hang-anatomy-postgres  Healthy
+ Container hang-anatomy-wiremock  Healthy
+ Container hang-anatomy-app  Starting
+ Container hang-anatomy-app  Started
+./scripts/smoke/check-stack.sh
+Smoke checks passed.

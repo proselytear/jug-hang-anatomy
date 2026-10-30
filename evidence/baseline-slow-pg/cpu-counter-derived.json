@@ -1,0 +1,10 @@
+{
+  "first_scrape_end_utc": "2026-10-29T20:22:42.860Z",
+  "last_scrape_end_utc": "2026-10-29T20:23:37.974Z",
+  "elapsed_seconds": 55.11400008201599,
+  "cpu_time_delta_seconds": 0.81,
+  "assigned_cpu": 2,
+  "mean_fraction_of_assigned_two_cpu": 0.0073484051129896815,
+  "formula": "delta(process_cpu_time_ns_total)/1e9 / wall_seconds /2",
+  "caveat": "timestamps are scrape response completion; Actuator request can queue; not a median gauge measurement"
+}

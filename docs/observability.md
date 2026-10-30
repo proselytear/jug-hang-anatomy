@@ -56,6 +56,15 @@ Partner:
 - `hang_partner_fallbacks_total`
 - Resilience4j metrics for bulkhead, circuit breaker and rate limiter
 
+Executor pools:
+
+- `executor_active_threads{name="partner-executor"}`
+- `executor_queued_tasks{name="partner-executor"}`
+- `executor_active_threads{name="budget-executor"}`
+- `executor_queued_tasks{name="budget-executor"}`
+
+These gauges observe the actual fixed partner pool and cached budget pool. The cached pool uses direct handoff, so a zero queue does not establish that its thread count is bounded. Check active threads alongside it. Executor monitoring was added after the article's original measurements on `8c14914`; those measurements contain no executor queue samples.
+
 ## Logs
 
 The application writes JSON logs and Alloy ships them to Loki.
@@ -72,6 +81,8 @@ Important fields:
 - `mode`
 - `outcome`
 - `durationMs`
+
+For dashboard responses, the controller passes `DashboardResponse.outcome` through a request attribute to the logging interceptor. HTTP 200 with a saved snapshot is therefore logged as `fallback-bulkhead`, `fallback-timeout` or `fallback-circuit-open`, rather than `success`. For routes without an explicit outcome, the interceptor retains its HTTP-status classification. This behavior was added after commit `8c14914`.
 
 ## Traces
 

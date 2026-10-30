@@ -1,0 +1,30 @@
+{
+  "kind": "startup diagnostic; not performance measurement",
+  "source_commit": "8c14914cb6b5533614cfae6e1035fe61c5a4c1de",
+  "image_id": "sha256:44f29f1caab47ea6b267a62c90da6e997d16e234417327db1fb71ddd4302da37",
+  "profile": "docker",
+  "no_external_yaml_in_first_attempt": true,
+  "env": {
+    "HANG_LOG_FILE": "/var/log/hang-anatomy/application.json.log",
+    "HANG_OTLP_TRACES_ENDPOINT": "http://alloy:4318/v1/traces",
+    "JAVA_OPTS": "-XX:MaxRAMPercentage=70 -Dfile.encoding=UTF-8",
+    "SPRING_PROFILES_ACTIVE": "docker",
+    "SERVER_TOMCAT_THREADS_MAX": "16",
+    "SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE": "6",
+    "SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT": "12000",
+    "HANG_PARTNER_READ_TIMEOUT": "15s",
+    "HANG_PARTNER_OVERALL_DEADLINE": "15s",
+    "HANG_PARTNER_TIMEOUT_ENABLED": "false",
+    "HANG_PARTNER_BULKHEAD_ENABLED": "false",
+    "HANG_PARTNER_CIRCUIT_BREAKER_ENABLED": "false",
+    "HANG_DB_BULKHEAD_ENABLED": "false",
+    "HANG_RATE_LIMITER_HEAVY_ENABLED": "false"
+  },
+  "failure": "pool starts during JavaBeanBinder reflective getConnection property read; later setPoolName fails because Hikari configuration sealed",
+  "proof": [
+    "startup.log",
+    "startup-debug.log",
+    "jdb-getconnection-selected.txt"
+  ],
+  "jdb_diagnostic_only": "JDWP startup not used for any measured run"
+}

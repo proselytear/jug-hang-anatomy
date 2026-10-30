@@ -1,0 +1,34 @@
+{
+  "purpose": "Repository validation, not a new article load measurement",
+  "commit": "223651907bcd6674f782b0a3ba0ba4e8d1227330",
+  "at_utc": "2026-10-29T20:37:09.322964+00:00",
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "startup": "make up succeeds with network-only override because host default address pools exhausted",
+  "application_yaml_override": false,
+  "executor_gauges_verified": [
+    [
+      "executor_active_threads",
+      "partner-executor"
+    ],
+    [
+      "executor_active_threads",
+      "budget-executor"
+    ],
+    [
+      "executor_queued_tasks",
+      "partner-executor"
+    ],
+    [
+      "executor_queued_tasks",
+      "budget-executor"
+    ]
+  ],
+  "snapshot_responses": 1,
+  "snapshot_outcomes": [
+    "fallback-bulkhead"
+  ],
+  "snapshot_log_outcome_verified": true
+}

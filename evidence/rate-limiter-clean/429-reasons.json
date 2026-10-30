@@ -1,0 +1,4 @@
+{
+  "DB bulkhead rejected the request": 51,
+  "Heavy endpoint rate limiter rejected the request": 150
+}

@@ -1,0 +1,31 @@
+2026-10-29T20:22:51Z
+ pid |        state        | wait_event_type | wait_event |     tx_age      |    query_age    |                             query                              
+-----+---------------------+-----------------+------------+-----------------+-----------------+----------------------------------------------------------------
+ 307 | idle in transaction | Client          | ClientRead | 00:00:03.987392 | 00:00:03.985207 | select id, dashboard_id, metric_name, metric_value, created_at+
+     |                     |                 |            |                 |                 | from dashboard_item                                           +
+     |                     |                 |            |                 |                 | where dashboard_id = $1                                       +
+     |                     |                 |            |                 |                 | order by created_at                                           +
+     |                     |                 |            |                 |                 | 
+ 308 | idle in transaction | Client          | ClientRead | 00:00:03.985125 | 00:00:03.984558 | select id, dashboard_id, metric_name, metric_value, created_at+
+     |                     |                 |            |                 |                 | from dashboard_item                                           +
+     |                     |                 |            |                 |                 | where dashboard_id = $1                                       +
+     |                     |                 |            |                 |                 | order by created_at                                           +
+     |                     |                 |            |                 |                 | 
+ 306 | idle in transaction | Client          | ClientRead | 00:00:03.984855 | 00:00:03.984532 | select id, dashboard_id, metric_name, metric_value, created_at+
+     |                     |                 |            |                 |                 | from dashboard_item                                           +
+     |                     |                 |            |                 |                 | where dashboard_id = $1                                       +
+     |                     |                 |            |                 |                 | order by created_at                                           +
+     |                     |                 |            |                 |                 | 
+ 276 | idle in transaction | Client          | ClientRead | 00:00:03.984679 | 00:00:03.984081 | select id, dashboard_id, metric_name, metric_value, created_at+
+     |                     |                 |            |                 |                 | from dashboard_item                                           +
+     |                     |                 |            |                 |                 | where dashboard_id = $1                                       +
+     |                     |                 |            |                 |                 | order by created_at                                           +
+     |                     |                 |            |                 |                 | 
+ 268 | idle in transaction | Client          | ClientRead | 00:00:03.98454  | 00:00:03.984085 | select id, dashboard_id, metric_name, metric_value, created_at+
+     |                     |                 |            |                 |                 | from dashboard_item                                           +
+     |                     |                 |            |                 |                 | where dashboard_id = $1                                       +
+     |                     |                 |            |                 |                 | order by created_at                                           +
+     |                     |                 |            |                 |                 | 
+ 267 | idle                | Client          | ClientRead |                 | 00:02:05.464616 | SHOW TRANSACTION ISOLATION LEVEL
+(6 rows)
+
