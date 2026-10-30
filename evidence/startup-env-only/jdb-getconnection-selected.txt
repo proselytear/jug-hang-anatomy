@@ -1,0 +1,18 @@
+Diagnostic only: original app.jar, original application.yml, env-only configuration.
+JDWP local within hang-v5-app. First breakpoint in HikariDataSource.getConnection().
+Selected frames copied verbatim from jdb `where`:
+  [1] com.zaxxer.hikari.HikariDataSource.getConnection (HikariDataSource.java:94)
+  [2] java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual (null)
+  [3] java.lang.invoke.LambdaForm$MH/0x00007e0001070800.invoke (null)
+  [4] java.lang.invoke.Invokers$Holder.invokeExact_MT (null)
+  [5] jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl (DirectMethodHandleAccessor.java:154)
+  [6] jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:104)
+  [7] java.lang.reflect.Method.invoke (Method.java:565)
+  [8] org.springframework.boot.context.properties.bind.JavaBeanBinder$BeanProperty.lambda$getValue$0 (JavaBeanBinder.java:428)
+  [9] org.springframework.boot.context.properties.bind.JavaBeanBinder$BeanProperty$$Lambda/0x00007e000124b590.get (null)
+  [10] org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.get (JavaBeanBinder.java:290)
+  [11] org.springframework.boot.context.properties.bind.JavaBeanBinder.bind (JavaBeanBinder.java:66)
+  [24] org.springframework.boot.context.properties.bind.JavaBeanBinder.bind (JavaBeanBinder.java:127)
+  [40] org.springframework.boot.context.properties.ConfigurationPropertiesBinder.bind (ConfigurationPropertiesBinder.java:96)
+  [41] org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.bind (ConfigurationPropertiesBindingPostProcessor.java:101)
+  [42] org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization (ConfigurationPropertiesBindingPostProcessor.java:84)

@@ -1,0 +1,86 @@
+{
+  "end_utc": "2026-10-29T20:27:35.367Z",
+  "total_elapsed_seconds": 60.0049161670031,
+  "groups": {
+    "heavy": {
+      "count": 712,
+      "statuses": {
+        "429": 2,
+        "200": 710
+      },
+      "outcomes": {
+        "None": 2,
+        "fallback-bulkhead": 13,
+        "fallback-timeout": 20,
+        "fallback-circuit-open": 677
+      },
+      "sources": {
+        "None": 2,
+        "snapshot": 710
+      },
+      "p95_ms": 13.236939949274495,
+      "p99_ms": 1538.0210687409267,
+      "transport_errors": 0
+    },
+    "admin": {
+      "count": 60,
+      "statuses": {
+        "200": 60
+      },
+      "outcomes": {
+        "None": 60
+      },
+      "sources": {
+        "None": 60
+      },
+      "p95_ms": 6.019252396799857,
+      "p99_ms": 20.721489655115796,
+      "transport_errors": 0
+    },
+    "health": {
+      "count": 60,
+      "statuses": {
+        "200": 60
+      },
+      "outcomes": {
+        "None": 60
+      },
+      "sources": {
+        "None": 60
+      },
+      "p95_ms": 12.400393754796823,
+      "p99_ms": 49.97549533858515,
+      "transport_errors": 0
+    },
+    "readiness": {
+      "count": 12,
+      "statuses": {
+        "200": 12
+      },
+      "outcomes": {
+        "None": 12
+      },
+      "sources": {
+        "None": 12
+      },
+      "p95_ms": 18.807249858218693,
+      "p99_ms": 29.541416376305293,
+      "transport_errors": 0
+    },
+    "liveness": {
+      "count": 12,
+      "statuses": {
+        "200": 12
+      },
+      "outcomes": {
+        "None": 12
+      },
+      "sources": {
+        "None": 12
+      },
+      "p95_ms": 18.663531250786022,
+      "p99_ms": 26.653106247540574,
+      "transport_errors": 0
+    }
+  }
+}

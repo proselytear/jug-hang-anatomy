@@ -1,0 +1,52 @@
+{
+  "hang_db_bulkhead_rejections_total{application=\"hang-anatomy-demo\",endpoint=\"/api/v1/dashboard/{id}\",mode=\"normal\",outcome=\"rejected\"}": {
+    "before": 0,
+    "after": 4.0,
+    "delta": 4.0
+  },
+  "hang_db_bulkhead_rejections_total{application=\"hang-anatomy-demo\",endpoint=\"/api/v1/dashboard/{id}\",mode=\"slow-partner\",outcome=\"rejected\"}": {
+    "before": 2.0,
+    "after": 2.0,
+    "delta": 0.0
+  },
+  "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"normal\",outcome=\"bulkhead_rejected\"}": {
+    "before": 0,
+    "after": 173.0,
+    "delta": 173.0
+  },
+  "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"normal\",outcome=\"circuit_open\"}": {
+    "before": 0,
+    "after": 8.0,
+    "delta": 8.0
+  },
+  "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"slow-partner\",outcome=\"bulkhead_rejected\"}": {
+    "before": 13.0,
+    "after": 13.0,
+    "delta": 0.0
+  },
+  "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"slow-partner\",outcome=\"circuit_open\"}": {
+    "before": 677.0,
+    "after": 677.0,
+    "delta": 0.0
+  },
+  "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": {
+    "before": 33.0,
+    "after": 206.0,
+    "delta": 173.0
+  },
+  "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": {
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0
+  },
+  "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": {
+    "before": 0.0,
+    "after": 355.0,
+    "delta": 355.0
+  },
+  "resilience4j_circuitbreaker_not_permitted_calls_total{application=\"hang-anatomy-demo\",kind=\"not_permitted\",name=\"partnerApi\"}": {
+    "before": 677.0,
+    "after": 685.0,
+    "delta": 8.0
+  }
+}

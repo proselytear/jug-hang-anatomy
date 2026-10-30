@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/hanganatomy
+    username: hanganatomy
+    password: hanganatomy
+
+management:
+  otlp:
+    tracing:
+      endpoint: http://alloy:4318/v1/traces
+
+logging:
+  file:
+    name: /var/log/hang-anatomy/application.json.log
+
+hang:
+  partner:
+    base-url: http://wiremock:8080/partner-api/v1

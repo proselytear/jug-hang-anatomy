@@ -1,0 +1,215 @@
+{
+  "end_utc": "2026-10-29T20:27:35.367Z",
+  "total_elapsed_seconds": 60.0049161670031,
+  "groups": {
+    "heavy": {
+      "count": 712,
+      "statuses": {
+        "429": 2,
+        "200": 710
+      },
+      "outcomes": {
+        "None": 2,
+        "fallback-bulkhead": 13,
+        "fallback-timeout": 20,
+        "fallback-circuit-open": 677
+      },
+      "sources": {
+        "None": 2,
+        "snapshot": 710
+      },
+      "p95_ms": 13.236939949274495,
+      "p99_ms": 1538.0210687409267,
+      "transport_errors": 0
+    },
+    "admin": {
+      "count": 60,
+      "statuses": {
+        "200": 60
+      },
+      "outcomes": {
+        "None": 60
+      },
+      "sources": {
+        "None": 60
+      },
+      "p95_ms": 6.019252396799857,
+      "p99_ms": 20.721489655115796,
+      "transport_errors": 0
+    },
+    "health": {
+      "count": 60,
+      "statuses": {
+        "200": 60
+      },
+      "outcomes": {
+        "None": 60
+      },
+      "sources": {
+        "None": 60
+      },
+      "p95_ms": 12.400393754796823,
+      "p99_ms": 49.97549533858515,
+      "transport_errors": 0
+    },
+    "readiness": {
+      "count": 12,
+      "statuses": {
+        "200": 12
+      },
+      "outcomes": {
+        "None": 12
+      },
+      "sources": {
+        "None": 12
+      },
+      "p95_ms": 18.807249858218693,
+      "p99_ms": 29.541416376305293,
+      "transport_errors": 0
+    },
+    "liveness": {
+      "count": 12,
+      "statuses": {
+        "200": 12
+      },
+      "outcomes": {
+        "None": 12
+      },
+      "sources": {
+        "None": 12
+      },
+      "p95_ms": 18.663531250786022,
+      "p99_ms": 26.653106247540574,
+      "transport_errors": 0
+    }
+  },
+  "heavy_by_outcome": {
+    "fallback-bulkhead": {
+      "count": 13,
+      "p95_ms": 113.06171620381065
+    },
+    "fallback-circuit-open": {
+      "count": 677,
+      "p95_ms": 11.302891594823448
+    },
+    "fallback-timeout": {
+      "count": 20,
+      "p95_ms": 1544.0768330059655
+    },
+    "status-429": {
+      "count": 2,
+      "p95_ms": 32.573794056952465
+    }
+  },
+  "resource_series": {
+    "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": {
+      "samples": 60,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 8.0
+    },
+    "hikaricp_connections_active{application=\"hang-anatomy-demo\",pool=\"hang-hikari\"}": {
+      "samples": 60,
+      "median": 1.0,
+      "min": 0.0,
+      "max": 4.0
+    },
+    "hikaricp_connections_max{application=\"hang-anatomy-demo\",pool=\"hang-hikari\"}": {
+      "samples": 60,
+      "median": 10.0,
+      "min": 10.0,
+      "max": 10.0
+    },
+    "hikaricp_connections_pending{application=\"hang-anatomy-demo\",pool=\"hang-hikari\"}": {
+      "samples": 60,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "process_cpu_usage{application=\"hang-anatomy-demo\"}": {
+      "samples": 60,
+      "median": 0.07,
+      "min": 0.0,
+      "max": 0.5166666666666667
+    },
+    "resilience4j_circuitbreaker_failure_rate{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": {
+      "samples": 60,
+      "median": 100.0,
+      "min": -1.0,
+      "max": 100.0
+    },
+    "resilience4j_circuitbreaker_slow_call_rate{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": {
+      "samples": 60,
+      "median": 100.0,
+      "min": -1.0,
+      "max": 100.0
+    },
+    "state=closed": {
+      "samples": 2,
+      "median": 1.0,
+      "min": 1,
+      "max": 1
+    },
+    "system_cpu_count{application=\"hang-anatomy-demo\"}": {
+      "samples": 60,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0
+    },
+    "system_cpu_usage{application=\"hang-anatomy-demo\"}": {
+      "samples": 60,
+      "median": 0.0703245,
+      "min": 0.0,
+      "max": 0.5200433333333333
+    },
+    "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\",name=\"http-nio-8080\"}": {
+      "samples": 60,
+      "median": 2.0,
+      "min": 1.0,
+      "max": 16.0
+    },
+    "tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\",name=\"http-nio-8080\"}": {
+      "samples": 60,
+      "median": 32.0,
+      "min": 32.0,
+      "max": 32.0
+    },
+    "state=open": {
+      "samples": 51,
+      "median": 1,
+      "min": 1,
+      "max": 1
+    },
+    "state=half_open": {
+      "samples": 7,
+      "median": 1,
+      "min": 1,
+      "max": 1
+    }
+  },
+  "scrape_statuses": {
+    "200": 60
+  },
+  "counter_first_last_delta": {
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": {
+      "first": 0.0,
+      "last": 33.0,
+      "delta": 33.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": {
+      "first": 0.0,
+      "last": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": {
+      "first": 0.0,
+      "last": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_not_permitted_calls_total{application=\"hang-anatomy-demo\",kind=\"not_permitted\",name=\"partnerApi\"}": {
+      "first": 0.0,
+      "last": 665.0,
+      "delta": 665.0
+    }
+  }
+}

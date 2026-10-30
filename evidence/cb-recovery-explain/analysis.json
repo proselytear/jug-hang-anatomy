@@ -1,0 +1,225 @@
+{
+  "end_utc": "2026-10-29T20:28:20.468Z",
+  "total_elapsed_seconds": 45.00604345899774,
+  "groups": {
+    "heavy": {
+      "count": 540,
+      "statuses": {
+        "429": 4,
+        "200": 536
+      },
+      "outcomes": {
+        "None": 4,
+        "fallback-circuit-open": 8,
+        "success": 355,
+        "fallback-bulkhead": 173
+      },
+      "sources": {
+        "None": 4,
+        "snapshot": 181,
+        "live": 355
+      },
+      "p95_ms": 69.98234169877833,
+      "p99_ms": 76.2374248780543,
+      "transport_errors": 0
+    },
+    "admin": {
+      "count": 45,
+      "statuses": {
+        "200": 45
+      },
+      "outcomes": {
+        "None": 45
+      },
+      "sources": {
+        "None": 45
+      },
+      "p95_ms": 9.351750195492057,
+      "p99_ms": 18.84675999695904,
+      "transport_errors": 0
+    },
+    "health": {
+      "count": 45,
+      "statuses": {
+        "200": 45
+      },
+      "outcomes": {
+        "None": 45
+      },
+      "sources": {
+        "None": 45
+      },
+      "p95_ms": 10.848741600057105,
+      "p99_ms": 19.841141481301776,
+      "transport_errors": 0
+    },
+    "readiness": {
+      "count": 9,
+      "statuses": {
+        "200": 9
+      },
+      "outcomes": {
+        "None": 9
+      },
+      "sources": {
+        "None": 9
+      },
+      "p95_ms": 17.910316595225588,
+      "p99_ms": 23.735929713002406,
+      "transport_errors": 0
+    },
+    "liveness": {
+      "count": 9,
+      "statuses": {
+        "200": 9
+      },
+      "outcomes": {
+        "None": 9
+      },
+      "sources": {
+        "None": 9
+      },
+      "p95_ms": 18.492750002769746,
+      "p99_ms": 23.31995000015013,
+      "transport_errors": 0
+    }
+  },
+  "heavy_by_outcome": {
+    "fallback-bulkhead": {
+      "count": 173,
+      "p95_ms": 12.472658194019461
+    },
+    "fallback-circuit-open": {
+      "count": 8,
+      "p95_ms": 52.52225000076578
+    },
+    "status-429": {
+      "count": 4,
+      "p95_ms": 23.505506345099995
+    },
+    "success": {
+      "count": 355,
+      "p95_ms": 70.84062930225627
+    }
+  },
+  "resource_series": {
+    "hang_partner_inflight{application=\"hang-anatomy-demo\",dependency=\"partner-api\"}": {
+      "samples": 45,
+      "median": 3.0,
+      "min": 0.0,
+      "max": 8.0
+    },
+    "hikaricp_connections_active{application=\"hang-anatomy-demo\",pool=\"hang-hikari\"}": {
+      "samples": 45,
+      "median": 3.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "hikaricp_connections_max{application=\"hang-anatomy-demo\",pool=\"hang-hikari\"}": {
+      "samples": 45,
+      "median": 10.0,
+      "min": 10.0,
+      "max": 10.0
+    },
+    "hikaricp_connections_pending{application=\"hang-anatomy-demo\",pool=\"hang-hikari\"}": {
+      "samples": 45,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "process_cpu_usage{application=\"hang-anatomy-demo\"}": {
+      "samples": 45,
+      "median": 0.08,
+      "min": 0.0,
+      "max": 0.21666666666666667
+    },
+    "resilience4j_circuitbreaker_failure_rate{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": {
+      "samples": 45,
+      "median": 20.0,
+      "min": -1.0,
+      "max": 100.0
+    },
+    "resilience4j_circuitbreaker_slow_call_rate{application=\"hang-anatomy-demo\",name=\"partnerApi\"}": {
+      "samples": 45,
+      "median": 0.0,
+      "min": -1.0,
+      "max": 100.0
+    },
+    "state=open": {
+      "samples": 1,
+      "median": 1,
+      "min": 1,
+      "max": 1
+    },
+    "system_cpu_count{application=\"hang-anatomy-demo\"}": {
+      "samples": 45,
+      "median": 2.0,
+      "min": 2.0,
+      "max": 2.0
+    },
+    "system_cpu_usage{application=\"hang-anatomy-demo\"}": {
+      "samples": 45,
+      "median": 0.086478,
+      "min": 0.0,
+      "max": 0.235485
+    },
+    "tomcat_threads_busy_threads{application=\"hang-anatomy-demo\",name=\"http-nio-8080\"}": {
+      "samples": 45,
+      "median": 12.0,
+      "min": 3.0,
+      "max": 16.0
+    },
+    "tomcat_threads_config_max_threads{application=\"hang-anatomy-demo\",name=\"http-nio-8080\"}": {
+      "samples": 45,
+      "median": 32.0,
+      "min": 32.0,
+      "max": 32.0
+    },
+    "state=closed": {
+      "samples": 44,
+      "median": 1.0,
+      "min": 1,
+      "max": 1
+    }
+  },
+  "scrape_statuses": {
+    "200": 45
+  },
+  "counter_first_last_delta": {
+    "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"normal\",outcome=\"circuit_open\"}": {
+      "first": 2.0,
+      "last": 8.0,
+      "delta": 6.0
+    },
+    "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"slow-partner\",outcome=\"bulkhead_rejected\"}": {
+      "first": 13.0,
+      "last": 13.0,
+      "delta": 0.0
+    },
+    "hang_partner_rejections_total{application=\"hang-anatomy-demo\",dependency=\"partner-api\",mode=\"slow-partner\",outcome=\"circuit_open\"}": {
+      "first": 677.0,
+      "last": 677.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"failed\",name=\"partnerApi\"}": {
+      "first": 33.0,
+      "last": 202.0,
+      "delta": 169.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"ignored\",name=\"partnerApi\"}": {
+      "first": 0.0,
+      "last": 0.0,
+      "delta": 0.0
+    },
+    "resilience4j_circuitbreaker_calls_seconds_count{application=\"hang-anatomy-demo\",kind=\"successful\",name=\"partnerApi\"}": {
+      "first": 0.0,
+      "last": 347.0,
+      "delta": 347.0
+    },
+    "resilience4j_circuitbreaker_not_permitted_calls_total{application=\"hang-anatomy-demo\",kind=\"not_permitted\",name=\"partnerApi\"}": {
+      "first": 677.0,
+      "last": 685.0,
+      "delta": 8.0
+    }
+  }
+}

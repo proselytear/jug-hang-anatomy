@@ -1,0 +1,2 @@
+./scripts/wiremock/set-slow.sh
+WireMock mode applied: slow-partner
